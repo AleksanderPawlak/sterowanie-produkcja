@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Google.Maps;
 
-namespace Wyznaczanie_Optymalnej_Trasy.Google
+namespace Wyznaczanie_Optymalnej_Trasy
 {
-    public class Address  // Maybe Google.maps have structures for that
+     public class Customer
     {
-        //public PointLatLng Coordinates;
+        public string Name;
+        // Maybe Google.maps have structures for that
         public LatLng Coordinates { get; set; } = default;
         public string Street;
         public int BuildingNumber;
@@ -17,6 +18,21 @@ namespace Wyznaczanie_Optymalnej_Trasy.Google
         public string ZipCode;
         public string City;
         public string Country;
+
+        public Customer(
+            string name, decimal latitude, decimal longitude, string street, int buildingNumber,
+            int houseNumber, string zipcode, string city, string country
+            )
+        {
+            Name = name;
+            Coordinates = new LatLng(latitude, longitude);
+            Street = street;
+            BuildingNumber = buildingNumber;
+            HouseNumber = houseNumber;
+            ZipCode = zipcode;
+            City = city;
+            Country = country;
+        }
 
         public Location AsLocation()
         {
@@ -30,14 +46,6 @@ namespace Wyznaczanie_Optymalnej_Trasy.Google
                 return new Location(locationString);
             }
         }
-    }
-
-     public class Customer
-    {
-        public string Name;
-        public Address Address;   
-
-
     }
 
 }

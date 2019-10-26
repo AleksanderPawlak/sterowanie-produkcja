@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Google.Maps;
 
-using Wyznaczanie_Optymalnej_Trasy.Google;
-
 namespace Wyznaczanie_Optymalnej_Trasy
 {
 
     //  Probably this structures will be changed
     static class Globals
     {
-        static bool AllowApi = false;
+        static bool AllowGoogleApiOperations = false;
         public const string API_KEY = "AIzaSyATIIYDzB6wVmdywhGVSmRLOWYrMHkrWBM";
     }
 
@@ -64,8 +62,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
             string name, decimal latitude, decimal longitude, string street, int buildingNumber, 
             int houseNumber, string zipcode, string city, string country
             )
-        { 
-            
+        {
+            Customer customer = new Customer(name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country);
+            CustomersList.Add(customer);
         }
     }
 }
