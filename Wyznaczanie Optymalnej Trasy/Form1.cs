@@ -14,6 +14,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
     public partial class Form1 : Form
     {
         private Data data;
+        // TODO: handle situations when add form was opened but adding was not completed
+        private bool ActiveAddForm { get; set; } = false;
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +45,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
         private void AddCustomerButton_Click(object sender, EventArgs e)
         {
             var form = new AddCustomerForm(ref data);
+            form.FormClosed += delegate { 
+                ActiveAddForm = false;
+                Load_CustomerListview();
+            };
             form.Show();
+            ActiveAddForm = true;
         }
     }
 }

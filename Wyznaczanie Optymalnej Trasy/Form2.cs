@@ -17,11 +17,37 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             data = _data;
             InitializeComponent();
+            InitializeAdditional();
+        }
+
+        private void MissingValuesMessageBox()
+        { 
+            //TODO display box with "OK" and message about missing values...
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(this.NameBox.Text))
+            {
+                MissingValuesMessageBox();
+            }
 
+            if (!this.CoordinatesBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
+            {
+                data.AddCustomer(
+                    this.NameBox.Text, Convert.ToDecimal(this.LatBox.Text), Convert.ToDecimal(this.LenBox.Text)
+                    );
+                this.Close();
+            }
+            else if (this.AddressBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
+            {
+                MissingValuesMessageBox();
+            }
+            else
+            {
+                //TODO: Pass Adrress data
+                MissingValuesMessageBox();
+            }
         }
     }
 }

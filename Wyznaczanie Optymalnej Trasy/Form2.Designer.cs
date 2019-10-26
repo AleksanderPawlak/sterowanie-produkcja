@@ -235,6 +235,19 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         }
 
+        private void InitializeAdditional()
+        {
+            this.CoordinatesBoxes = new List<System.Windows.Forms.TextBox> { this.LatBox, this.LenBox };
+            this.AddressBoxes = new List<System.Windows.Forms.TextBox> {
+                this.StreetBox,
+                this.BuildingBox,
+                this.LocalBox,
+                this.ZipCodeBox,
+                this.CityBox,
+                this.CountryBox
+            };
+        }
+
         #endregion
 
         private System.Windows.Forms.TextBox NameBox;
@@ -257,5 +270,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
         private System.Windows.Forms.TextBox CountryBox;
         private System.Windows.Forms.Button AddButton;
         private List<System.Windows.Forms.TextBox> CoordinatesBoxes;
+        private List<System.Windows.Forms.TextBox> AddressBoxes;
     }
 }

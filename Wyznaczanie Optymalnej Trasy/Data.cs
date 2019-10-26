@@ -19,7 +19,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     public class Data
     {
         // Data class should be initialized on program startup.
-        static string JsonFilesFolder = @".\";
+        static string JsonFilesFolder = @".\..\..";
         static string CustomersJsonFilename = "Customers.json";
         static string DimensionMatrixJsonFilename = "DimensionMatrix.json";
         public List<Customer> CustomersList;
@@ -41,7 +41,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             try
             {
-                using (System.IO.StreamReader stream = new System.IO.StreamReader(System.IO.Path.Combine(JsonFilesFolder, filename)))
+                using (
+                    System.IO.StreamReader stream = new System.IO.StreamReader(
+                        System.IO.Path.Combine(JsonFilesFolder, filename)
+                        )
+                    )
                 {
                     return JsonConvert.DeserializeObject<T>(stream.ReadToEnd());
                 }
@@ -59,11 +63,21 @@ namespace Wyznaczanie_Optymalnej_Trasy
         }
 
         public void AddCustomer(
+            string name, decimal latitude, decimal longitude
+            )
+        {
+            Customer customer = new Customer(name, latitude, longitude);
+            CustomersList.Add(customer);
+        }
+
+        public void AddCustomer(
             string name, decimal latitude, decimal longitude, string street, int buildingNumber, 
             int houseNumber, string zipcode, string city, string country
             )
         {
-            Customer customer = new Customer(name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country);
+            Customer customer = new Customer(
+                name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country
+                );
             CustomersList.Add(customer);
         }
     }
