@@ -16,7 +16,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public const string API_KEY = "AIzaSyATIIYDzB6wVmdywhGVSmRLOWYrMHkrWBM";
     }
 
-    class Data
+    public class Data
     {
         // Data class should be initialized on program startup.
         static string JsonFilesFolder = @".\";

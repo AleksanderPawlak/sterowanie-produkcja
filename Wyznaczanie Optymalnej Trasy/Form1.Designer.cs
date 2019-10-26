@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CustomersList = new System.Windows.Forms.TabPage();
+            this.AddCustomerButton = new System.Windows.Forms.Button();
             this.CustomerListview = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.langitude = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -38,8 +39,8 @@
             this.building = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.local = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.zipcode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Algorithm = new System.Windows.Forms.TabPage();
             this.city = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Algorithm = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // 
             this.tabControl1.Controls.Add(this.CustomersList);
             this.tabControl1.Controls.Add(this.Algorithm);
-            this.tabControl1.Location = new System.Drawing.Point(30, 30);
+            this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1518, 1105);
@@ -56,6 +57,7 @@
             // 
             // CustomersList
             // 
+            this.CustomersList.Controls.Add(this.AddCustomerButton);
             this.CustomersList.Controls.Add(this.CustomerListview);
             this.CustomersList.Location = new System.Drawing.Point(4, 40);
             this.CustomersList.Name = "CustomersList";
@@ -64,6 +66,16 @@
             this.CustomersList.TabIndex = 0;
             this.CustomersList.Text = "Lista odbiorców";
             this.CustomersList.UseVisualStyleBackColor = true;
+            // 
+            // AddCustomerButton
+            // 
+            this.AddCustomerButton.Location = new System.Drawing.Point(7, 951);
+            this.AddCustomerButton.Name = "AddCustomerButton";
+            this.AddCustomerButton.Size = new System.Drawing.Size(254, 104);
+            this.AddCustomerButton.TabIndex = 1;
+            this.AddCustomerButton.Text = "Dodaj odbiorcę";
+            this.AddCustomerButton.UseVisualStyleBackColor = true;
+            this.AddCustomerButton.Click += new System.EventHandler(this.AddCustomerButton_Click);
             // 
             // CustomerListview
             // 
@@ -76,11 +88,10 @@
             this.local,
             this.zipcode,
             this.city});
-            this.CustomerListview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerListview.HideSelection = false;
             this.CustomerListview.Location = new System.Drawing.Point(3, 3);
             this.CustomerListview.Name = "CustomerListview";
-            this.CustomerListview.Size = new System.Drawing.Size(1504, 1055);
+            this.CustomerListview.Size = new System.Drawing.Size(1504, 941);
             this.CustomerListview.TabIndex = 0;
             this.CustomerListview.UseCompatibleStateImageBehavior = false;
             this.CustomerListview.View = System.Windows.Forms.View.Details;
@@ -120,6 +131,11 @@
             this.zipcode.Text = "kod pocztowy";
             this.zipcode.Width = 186;
             // 
+            // city
+            // 
+            this.city.Text = "miasto";
+            this.city.Width = 267;
+            // 
             // Algorithm
             // 
             this.Algorithm.Location = new System.Drawing.Point(4, 40);
@@ -130,11 +146,6 @@
             this.Algorithm.Text = "Wyznacz trasę";
             this.Algorithm.UseVisualStyleBackColor = true;
             // 
-            // city
-            // 
-            this.city.Text = "miasto";
-            this.city.Width = 267;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -142,7 +153,7 @@
             this.ClientSize = new System.Drawing.Size(1560, 1163);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Wyznaczanie optymalnej trasy";
             this.tabControl1.ResumeLayout(false);
             this.CustomersList.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -163,6 +174,7 @@
         private System.Windows.Forms.ColumnHeader local;
         private System.Windows.Forms.ColumnHeader zipcode;
         private System.Windows.Forms.ColumnHeader city;
+        private System.Windows.Forms.Button AddCustomerButton;
     }
 }
 

@@ -39,5 +39,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 this.CustomerListview.Items.Add(listviewItem);
             }
         }
+
+        private void AddCustomerButton_Click(object sender, EventArgs e)
+        {
+            var form = new AddCustomerForm(ref data);
+            form.Show();
+        }
     }
 }
