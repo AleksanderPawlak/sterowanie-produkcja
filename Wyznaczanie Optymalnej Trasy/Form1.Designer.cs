@@ -51,6 +51,7 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ComputeButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.Algorithm.SuspendLayout();
@@ -87,6 +88,7 @@
             this.DimensionsRefreshButton.TabIndex = 2;
             this.DimensionsRefreshButton.Text = "Przelicz odległości";
             this.DimensionsRefreshButton.UseVisualStyleBackColor = true;
+            this.DimensionsRefreshButton.Click += new System.EventHandler(this.DimensionsRefreshButton_Click);
             // 
             // AddCustomerButton
             // 
@@ -159,11 +161,12 @@
             // 
             // Algorithm
             // 
+            this.Algorithm.Controls.Add(this.ComputeButton);
             this.Algorithm.Controls.Add(this.CustomersListCheck);
             this.Algorithm.Location = new System.Drawing.Point(4, 40);
             this.Algorithm.Name = "Algorithm";
             this.Algorithm.Padding = new System.Windows.Forms.Padding(3);
-            this.Algorithm.Size = new System.Drawing.Size(1510, 1061);
+            this.Algorithm.Size = new System.Drawing.Size(1528, 1061);
             this.Algorithm.TabIndex = 1;
             this.Algorithm.Text = "Wyznacz trasę";
             this.Algorithm.UseVisualStyleBackColor = true;
@@ -229,6 +232,16 @@
             this.columnHeader8.Text = "miasto";
             this.columnHeader8.Width = 267;
             // 
+            // ComputeButton
+            // 
+            this.ComputeButton.Location = new System.Drawing.Point(6, 948);
+            this.ComputeButton.Name = "ComputeButton";
+            this.ComputeButton.Size = new System.Drawing.Size(279, 107);
+            this.ComputeButton.TabIndex = 2;
+            this.ComputeButton.Text = "Wyznacz trasę";
+            this.ComputeButton.UseVisualStyleBackColor = true;
+            this.ComputeButton.Click += new System.EventHandler(this.ComputeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -270,6 +283,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.Button ComputeButton;
     }
 }
 

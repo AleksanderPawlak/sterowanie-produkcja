@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wyznaczanie_Optymalnej_Trasy;
+using static System.Windows.Forms.ListView;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -25,6 +26,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void Load_CustomerListview()
         {
+            this.CustomerListview.Items.Clear();
+            this.CustomersListCheck.Items.Clear();
+
             foreach (Customer customer in data.CustomersList)
             {
                 string[] row = {
@@ -37,8 +41,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     customer.ZipCode,
                     customer.City
                 };
+                string[] rowCopy = new string[row.Length];
+                row.CopyTo(rowCopy, 0);
                 var listviewItem = new ListViewItem(row);
+                var listviewItemCopy = new ListViewItem(rowCopy);
                 this.CustomerListview.Items.Add(listviewItem);
+                this.CustomersListCheck.Items.Add(listviewItemCopy);
             }
         }
 
@@ -51,6 +59,16 @@ namespace Wyznaczanie_Optymalnej_Trasy
             };
             form.Show();
             ActiveAddForm = true;
+        }
+
+        private void DimensionsRefreshButton_Click(object sender, EventArgs e)
+        {
+            data.UpdateDimensionMatrix();
+        }
+
+        private void ComputeButton_Click(object sender, EventArgs e)
+        {
+            //TODO: get all selected indexes, substract dimensions from matrix and pass to algorithm.
         }
     }
 }

@@ -238,11 +238,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void InitializeAdditional()
         {
-            this.CoordinatesBoxes = new List<System.Windows.Forms.TextBox> { this.LatBox, this.LocalBox };
+            this.CoordinatesBoxes = new List<System.Windows.Forms.TextBox> { this.LatBox, this.LenBox };
             this.AddressBoxes = new List<System.Windows.Forms.TextBox> {
                 this.StreetBox,
                 this.BuildingBox,
-                this.LenBox,
+                this.LocalBox,
                 this.CountryBox,
                 this.CityBox,
                 this.ZipCodeBox

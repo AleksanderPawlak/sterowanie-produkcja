@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Google.Maps;
+using Google.Maps.DistanceMatrix;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -12,7 +13,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     //  Probably this structures will be changed
     static class Globals
     {
-        static bool AllowGoogleApiOperations = false;
+        public const bool AllowGoogleApiOperations = true;
         public const string API_KEY = "AIzaSyATIIYDzB6wVmdywhGVSmRLOWYrMHkrWBM";
     }
 
@@ -23,18 +24,20 @@ namespace Wyznaczanie_Optymalnej_Trasy
         static string CustomersJsonFilename = "Customers.json";
         static string DimensionMatrixJsonFilename = "DimensionMatrix.json";
         public List<Customer> CustomersList;
-        // public <jakis typ na macierz odleglosci> DimensionMatrix;
+        // TODO: Check if this type is ok (maybe List<Lits<DistanceMatrixElement>>)
+        public List<DistanceMatrixResponse.DistanceMatrixRows> DimensionMatrix;
 
         public Data()
         {
-            //GoogleSigned.AssignAllServices(new GoogleSigned(Globals.API_KEY));
+            GoogleSigned.AssignAllServices(new GoogleSigned(Globals.API_KEY));
             CustomersList = Deserialize<List<Customer>>(CustomersJsonFilename);
+            DimensionMatrix = Deserialize<List<DistanceMatrixResponse.DistanceMatrixRows>>(DimensionMatrixJsonFilename);
         }
 
         ~Data()
         {
             Serialize<List<Customer>>(CustomersJsonFilename, CustomersList);
-            //Serialize<>(DimensionMatrixJsonFilename, DimensionMatrix);
+            Serialize<List<DistanceMatrixResponse.DistanceMatrixRows>>(DimensionMatrixJsonFilename, DimensionMatrix);
         }
 
         private T Deserialize<T>(string filename) where T : new()
@@ -79,6 +82,21 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country
                 );
             CustomersList.Add(customer);
+        }
+
+        public void UpdateDimensionMatrix()
+        {
+            // NOT TESTED!!!!!!!!!
+            if (Globals.AllowGoogleApiOperations)
+            {
+                DistanceMatrixRequest request = new DistanceMatrixRequest()
+                {
+                    WaypointsOrigin = new List<Location> (from customer in CustomersList select customer.AsLocation()),
+                    WaypointsDestination = new List<Location>(from customer in CustomersList select customer.AsLocation())
+                };
+                //var response = new DistanceMatrixService().GetResponse(request);
+                // TODO: Convert distancematrix rows to List<DistanceMatrixResponse.DistanceMatrixRows> and assign
+            }
         }
     }
 }

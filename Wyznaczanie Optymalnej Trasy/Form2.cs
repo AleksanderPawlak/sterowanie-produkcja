@@ -20,33 +20,45 @@ namespace Wyznaczanie_Optymalnej_Trasy
             InitializeAdditional();
         }
 
-        private void MissingValuesMessageBox()
-        { 
-            //TODO display box with "OK" and message about missing values...
+        private void IncorrectValuesMessageBox(string msg)
+        {
+            string caption = "Niepoprawne dane wejściowe";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(msg, caption, buttons);
         }
 
         private void AcceptButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(this.NameBox.Text))
             {
-                MissingValuesMessageBox();
+                IncorrectValuesMessageBox("");
             }
 
             if (!this.CoordinatesBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
             {
-                data.AddCustomer(
-                    this.NameBox.Text, Convert.ToDecimal(this.LatBox.Text), Convert.ToDecimal(this.LocalBox.Text)
-                    );
-                this.Close();
+                try
+                {
+                    var lat = Convert.ToDecimal(this.LatBox.Text);
+                    var len = Convert.ToDecimal(this.LenBox.Text);
+                    data.AddCustomer(this.NameBox.Text, lat, len);
+                    this.Close();
+                }
+                catch (FormatException exception)
+                {
+                    IncorrectValuesMessageBox(
+                        "Niepoprawny format danych wejściowych. " +
+                        "Upewnij się, że wartości liczbowe wprowadzono ze znakiem \",\"."
+                        );
+                }
             }
             else if (this.AddressBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
             {
-                MissingValuesMessageBox();
+                IncorrectValuesMessageBox("");
             }
             else
             {
                 //TODO: Pass Adrress data
-                MissingValuesMessageBox();
+                IncorrectValuesMessageBox("");
             }
         }
     }
