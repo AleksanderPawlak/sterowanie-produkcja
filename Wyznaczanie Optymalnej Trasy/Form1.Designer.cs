@@ -63,7 +63,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1518, 1105);
+            this.tabControl1.Size = new System.Drawing.Size(1536, 1105);
             this.tabControl1.TabIndex = 0;
             // 
             // CustomersList
@@ -74,7 +74,7 @@
             this.CustomersList.Location = new System.Drawing.Point(4, 40);
             this.CustomersList.Name = "CustomersList";
             this.CustomersList.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomersList.Size = new System.Drawing.Size(1510, 1061);
+            this.CustomersList.Size = new System.Drawing.Size(1528, 1061);
             this.CustomersList.TabIndex = 0;
             this.CustomersList.Text = "Lista odbiorców";
             this.CustomersList.UseVisualStyleBackColor = true;
@@ -100,6 +100,7 @@
             // 
             // CustomerListview
             // 
+            this.CustomerListview.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
             this.CustomerListview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.name,
             this.langitude,
@@ -109,10 +110,9 @@
             this.local,
             this.zipcode,
             this.city});
-            this.CustomerListview.HideSelection = false;
             this.CustomerListview.Location = new System.Drawing.Point(3, 3);
             this.CustomerListview.Name = "CustomerListview";
-            this.CustomerListview.Size = new System.Drawing.Size(1504, 941);
+            this.CustomerListview.Size = new System.Drawing.Size(1519, 941);
             this.CustomerListview.TabIndex = 0;
             this.CustomerListview.UseCompatibleStateImageBehavior = false;
             this.CustomerListview.View = System.Windows.Forms.View.Details;
@@ -233,6 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1560, 1163);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";

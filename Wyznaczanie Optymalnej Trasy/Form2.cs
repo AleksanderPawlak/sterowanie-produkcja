@@ -35,7 +35,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             if (!this.CoordinatesBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
             {
                 data.AddCustomer(
-                    this.NameBox.Text, Convert.ToDecimal(this.LatBox.Text), Convert.ToDecimal(this.LenBox.Text)
+                    this.NameBox.Text, Convert.ToDecimal(this.LatBox.Text), Convert.ToDecimal(this.LocalBox.Text)
                     );
                 this.Close();
             }
