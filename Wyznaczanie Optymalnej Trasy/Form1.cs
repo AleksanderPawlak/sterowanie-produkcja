@@ -71,6 +71,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
             var distanceMatrix = data.getSpecificDistances(selectedNames);
+            Console.WriteLine(distanceMatrix.ToString());
             // TODO: pass distanceMatrix to algorithm
         }
 
