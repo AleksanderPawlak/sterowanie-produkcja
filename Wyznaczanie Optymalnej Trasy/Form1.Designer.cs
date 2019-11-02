@@ -258,6 +258,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Wyznaczanie optymalnej trasy";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.CustomersList.ResumeLayout(false);
             this.Algorithm.ResumeLayout(false);

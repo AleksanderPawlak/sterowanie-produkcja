@@ -18,6 +18,14 @@ namespace Wyznaczanie_Optymalnej_Trasy
             Latitude = latitude;
             Longitude = longitude;
         }
+
+        public override string ToString()
+        {
+            var d = Latitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) 
+                + "," + 
+                Longitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+            return d;
+        }
     }
 
 

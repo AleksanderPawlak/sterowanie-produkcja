@@ -14,7 +14,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     static class Globals
     {
         public const bool AllowGoogleApiOperations = true;
-        public const string API_KEY = "AIzaSyATIIYDzB6wVmdywhGVSmRLOWYrMHkrWBM";
+        public const string API_KEY = "";
     }
 
     public class Data
@@ -25,19 +25,22 @@ namespace Wyznaczanie_Optymalnej_Trasy
         static string DimensionMatrixJsonFilename = "DimensionMatrix.json";
         public List<Customer> CustomersList;
         // TODO: Check if this type is ok (maybe List<Lits<DistanceMatrixElement>>)
-        public List<DistanceMatrixResponse.DistanceMatrixRows> DimensionMatrix;
+        public DistanceMatrixResponse.DistanceMatrixRows[] DistanceMatrix;
+        public DistanceMatrixResponse resss;
 
         public Data()
         {
             GoogleSigned.AssignAllServices(new GoogleSigned(Globals.API_KEY));
             CustomersList = Deserialize<List<Customer>>(CustomersJsonFilename);
-            DimensionMatrix = Deserialize<List<DistanceMatrixResponse.DistanceMatrixRows>>(DimensionMatrixJsonFilename);
+            DistanceMatrix = DeserializeDistanceMatrix(DimensionMatrixJsonFilename);
+            resss = Deserialize<DistanceMatrixResponse>("dupa.json");
         }
 
         ~Data()
         {
             Serialize<List<Customer>>(CustomersJsonFilename, CustomersList);
-            Serialize<List<DistanceMatrixResponse.DistanceMatrixRows>>(DimensionMatrixJsonFilename, DimensionMatrix);
+            Serialize<DistanceMatrixResponse.DistanceMatrixRows[]>(DimensionMatrixJsonFilename, DistanceMatrix);
+            Serialize<DistanceMatrixResponse>("dupa.json", resss);
         }
 
         private T Deserialize<T>(string filename) where T : new()
@@ -56,6 +59,27 @@ namespace Wyznaczanie_Optymalnej_Trasy
             catch (System.IO.FileNotFoundException)
             {
                 return new T();
+            }
+        }
+
+        private DistanceMatrixResponse.DistanceMatrixRows[] DeserializeDistanceMatrix(string filename)
+        {
+            try
+            {
+                using (
+                    System.IO.StreamReader stream = new System.IO.StreamReader(
+                        System.IO.Path.Combine(JsonFilesFolder, filename)
+                        )
+                    )
+                {
+                    return JsonConvert.DeserializeObject<
+                        DistanceMatrixResponse.DistanceMatrixRows[]
+                        >(stream.ReadToEnd());
+                }
+            }
+            catch (System.IO.FileNotFoundException)
+            {
+                return new DistanceMatrixResponse.DistanceMatrixRows[CustomersList.Count * CustomersList.Count];
             }
         }
 
@@ -84,19 +108,36 @@ namespace Wyznaczanie_Optymalnej_Trasy
             CustomersList.Add(customer);
         }
 
-        public void UpdateDimensionMatrix()
+        public void UpdateDistanceMatrix()
         {
             // NOT TESTED!!!!!!!!!
-            if (Globals.AllowGoogleApiOperations)
-            {
-                DistanceMatrixRequest request = new DistanceMatrixRequest()
-                {
-                    WaypointsOrigin = new List<Location> (from customer in CustomersList select customer.AsLocation()),
-                    WaypointsDestination = new List<Location>(from customer in CustomersList select customer.AsLocation())
-                };
-                //var response = new DistanceMatrixService().GetResponse(request);
-                // TODO: Convert distancematrix rows to List<DistanceMatrixResponse.DistanceMatrixRows> and assign
-            }
+
+            List<Customer> copyt = new List<Customer>(CustomersList);
+            copyt.Reverse();
+            var origins = new List<Location>(from customer in CustomersList select customer.AsLocation());
+            var destinations = new List<Location>(from customer in copyt select customer.AsLocation());
+
+            // Something is wrong with location in request.
+            //DistanceMatrixRequest request = new DistanceMatrixRequest()
+            //{
+            //    WaypointsOrigin = origins,
+            //    WaypointsDestination = destinations
+            //};
+            //var response = new DistanceMatrixService().GetResponse(request);
+            //resss = response;
+            //DistanceMatrix = response.Rows;
+        }
+
+        public List<decimal> getSpecificDistances(List<string> customersNames)
+        {
+            List<int> indexes = Enumerable.Range(0, CustomersList.Count).Where(
+                i => customersNames.Contains(CustomersList[i].Name)
+                ).ToList();
+
+            List<decimal> distances = new List<decimal>();
+            //DistanceMatrixResponse.DistanceMatrixRows[] distances = ; ;
+            //TODO: select specified distances from matrix
+            return distances;
         }
     }
 }

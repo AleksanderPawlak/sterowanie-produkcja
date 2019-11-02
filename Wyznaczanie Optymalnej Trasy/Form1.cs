@@ -32,8 +32,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
             foreach (Customer customer in data.CustomersList)
             {
                 string[] row = {
-                    customer.Name, 
-                    customer.Coordinates.Latitude.ToString(), 
+                    customer.Name,
+                    customer.Coordinates.Latitude.ToString(),
                     customer.Coordinates.Longitude.ToString(),
                     customer.Street,
                     customer.BuildingNumber.ToString(),
@@ -45,8 +45,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 row.CopyTo(rowCopy, 0);
                 var listviewItem = new ListViewItem(row);
                 var listviewItemCopy = new ListViewItem(rowCopy);
-                this.CustomerListview.Items.Add(listviewItem);
-                this.CustomersListCheck.Items.Add(listviewItemCopy);
+                this.CustomerListview.Items.Add(listviewItemCopy);
+                this.CustomersListCheck.Items.Add(listviewItem);
             }
         }
 
@@ -63,12 +63,20 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void DimensionsRefreshButton_Click(object sender, EventArgs e)
         {
-            data.UpdateDimensionMatrix();
+            data.UpdateDistanceMatrix();
         }
 
         private void ComputeButton_Click(object sender, EventArgs e)
         {
-            //TODO: get all selected indexes, substract dimensions from matrix and pass to algorithm.
+            List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
+            List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
+            var distanceMatrix = data.getSpecificDistances(selectedNames);
+            // TODO: pass distanceMatrix to algorithm
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
