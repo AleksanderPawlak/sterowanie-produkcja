@@ -107,6 +107,22 @@ namespace Wyznaczanie_Optymalnej_Trasy
             CustomersList.Add(customer);
         }
 
+        private double DistancestringToDecimal(string distanceString)
+        {
+            if (distanceString.Contains("km"))
+            {
+                return Convert.ToDouble(distanceString.Replace(" km", ""));
+            }
+            else if (distanceString.Contains("m"))
+            {
+                return Convert.ToDouble(distanceString.Replace("m", "")) / 1000.0;
+            }
+            else 
+            {
+                return 0.0;
+            }
+        }
+
         public void UpdateDistanceMatrix()
         {
             // TESTED... (should be ok)
@@ -122,24 +138,26 @@ namespace Wyznaczanie_Optymalnej_Trasy
             resss = response;  // TODO: remove resss
             DistanceMatrix = response.Rows;
         }
-
-        //TODO: check if decimal[,] is ok
-        public decimal[,] getSpecificDistances(List<string> customersNames)
+         
+        // TODO: check if double[,] is ok
+        // TODO: refactor
+        public double[,] getSpecificDistances(List<string> customersNames)
         {
-            List<int> indexes = Enumerable.Range(0, CustomersList.Count).Where(
-                i => customersNames.Contains(CustomersList[i].Name)
-                ).ToList();
-
-            decimal[,] distances = new decimal[indexes.Count(), indexes.Count()];
-
-            foreach(int i in indexes)
+            List<int> indexes = Enumerable.Range(0, CustomersList.Count)
+                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList();
+            double[,] distances = new double[indexes.Count(), indexes.Count()];
+            
+            int res_i = 0;
+            foreach (int i in indexes)
             {
+                int res_j = 0;
                 DistanceMatrixResponse.DistanceMatrixElement[] elements = DistanceMatrix[i].Elements;
-                foreach(int j in indexes)
+                foreach (int j in indexes)
                 {
-                    //distances[i, j] = Convert.ToDecimal(elements[j].distance.Text);
-                    Console.WriteLine(elements[j].distance.Text);
+                    distances[res_i, res_j] = DistancestringToDecimal(elements[j].distance.Text);
+                    res_j++;
                 }
+                res_i++;
             }
 
             return distances;
