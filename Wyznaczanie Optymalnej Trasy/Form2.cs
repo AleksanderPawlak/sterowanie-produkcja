@@ -43,7 +43,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     data.AddCustomer(this.NameBox.Text, lat, len);
                     this.Close();
                 }
-                catch (FormatException exception)
+                catch (FormatException)
                 {
                     IncorrectValuesMessageBox(
                         "Niepoprawny format danych wejściowych. " +

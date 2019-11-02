@@ -42,6 +42,7 @@
             this.zipcode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.city = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Algorithm = new System.Windows.Forms.TabPage();
+            this.ComputeButton = new System.Windows.Forms.Button();
             this.CustomersListCheck = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,7 +52,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ComputeButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.Algorithm.SuspendLayout();
@@ -61,10 +61,11 @@
             // 
             this.tabControl1.Controls.Add(this.CustomersList);
             this.tabControl1.Controls.Add(this.Algorithm);
-            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1536, 1105);
+            this.tabControl1.Size = new System.Drawing.Size(1560, 1163);
             this.tabControl1.TabIndex = 0;
             // 
             // CustomersList
@@ -75,16 +76,17 @@
             this.CustomersList.Location = new System.Drawing.Point(4, 40);
             this.CustomersList.Name = "CustomersList";
             this.CustomersList.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomersList.Size = new System.Drawing.Size(1528, 1061);
+            this.CustomersList.Size = new System.Drawing.Size(1552, 1119);
             this.CustomersList.TabIndex = 0;
             this.CustomersList.Text = "Lista odbiorców";
             this.CustomersList.UseVisualStyleBackColor = true;
             // 
             // DimensionsRefreshButton
             // 
-            this.DimensionsRefreshButton.Location = new System.Drawing.Point(266, 950);
+            this.DimensionsRefreshButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.DimensionsRefreshButton.Location = new System.Drawing.Point(3, 908);
             this.DimensionsRefreshButton.Name = "DimensionsRefreshButton";
-            this.DimensionsRefreshButton.Size = new System.Drawing.Size(270, 104);
+            this.DimensionsRefreshButton.Size = new System.Drawing.Size(1546, 104);
             this.DimensionsRefreshButton.TabIndex = 2;
             this.DimensionsRefreshButton.Text = "Przelicz odległości";
             this.DimensionsRefreshButton.UseVisualStyleBackColor = true;
@@ -92,9 +94,10 @@
             // 
             // AddCustomerButton
             // 
-            this.AddCustomerButton.Location = new System.Drawing.Point(6, 950);
+            this.AddCustomerButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.AddCustomerButton.Location = new System.Drawing.Point(3, 1012);
             this.AddCustomerButton.Name = "AddCustomerButton";
-            this.AddCustomerButton.Size = new System.Drawing.Size(254, 104);
+            this.AddCustomerButton.Size = new System.Drawing.Size(1546, 104);
             this.AddCustomerButton.TabIndex = 1;
             this.AddCustomerButton.Text = "Dodaj odbiorcę";
             this.AddCustomerButton.UseVisualStyleBackColor = true;
@@ -112,9 +115,11 @@
             this.local,
             this.zipcode,
             this.city});
+            this.CustomerListview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomerListview.HideSelection = false;
             this.CustomerListview.Location = new System.Drawing.Point(3, 3);
             this.CustomerListview.Name = "CustomerListview";
-            this.CustomerListview.Size = new System.Drawing.Size(1519, 941);
+            this.CustomerListview.Size = new System.Drawing.Size(1546, 1113);
             this.CustomerListview.TabIndex = 0;
             this.CustomerListview.UseCompatibleStateImageBehavior = false;
             this.CustomerListview.View = System.Windows.Forms.View.Details;
@@ -166,10 +171,21 @@
             this.Algorithm.Location = new System.Drawing.Point(4, 40);
             this.Algorithm.Name = "Algorithm";
             this.Algorithm.Padding = new System.Windows.Forms.Padding(3);
-            this.Algorithm.Size = new System.Drawing.Size(1528, 1061);
+            this.Algorithm.Size = new System.Drawing.Size(1552, 1119);
             this.Algorithm.TabIndex = 1;
             this.Algorithm.Text = "Wyznacz trasę";
             this.Algorithm.UseVisualStyleBackColor = true;
+            // 
+            // ComputeButton
+            // 
+            this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ComputeButton.Location = new System.Drawing.Point(3, 1009);
+            this.ComputeButton.Name = "ComputeButton";
+            this.ComputeButton.Size = new System.Drawing.Size(1546, 107);
+            this.ComputeButton.TabIndex = 2;
+            this.ComputeButton.Text = "Wyznacz trasę";
+            this.ComputeButton.UseVisualStyleBackColor = true;
+            this.ComputeButton.Click += new System.EventHandler(this.ComputeButton_Click);
             // 
             // CustomersListCheck
             // 
@@ -184,10 +200,11 @@
             this.columnHeader7,
             this.columnHeader8});
             this.CustomersListCheck.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.CustomersListCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersListCheck.HideSelection = false;
-            this.CustomersListCheck.Location = new System.Drawing.Point(6, 0);
+            this.CustomersListCheck.Location = new System.Drawing.Point(3, 3);
             this.CustomersListCheck.Name = "CustomersListCheck";
-            this.CustomersListCheck.Size = new System.Drawing.Size(1504, 941);
+            this.CustomersListCheck.Size = new System.Drawing.Size(1546, 1113);
             this.CustomersListCheck.TabIndex = 1;
             this.CustomersListCheck.UseCompatibleStateImageBehavior = false;
             this.CustomersListCheck.View = System.Windows.Forms.View.Details;
@@ -231,16 +248,6 @@
             // 
             this.columnHeader8.Text = "miasto";
             this.columnHeader8.Width = 267;
-            // 
-            // ComputeButton
-            // 
-            this.ComputeButton.Location = new System.Drawing.Point(6, 948);
-            this.ComputeButton.Name = "ComputeButton";
-            this.ComputeButton.Size = new System.Drawing.Size(279, 107);
-            this.ComputeButton.TabIndex = 2;
-            this.ComputeButton.Text = "Wyznacz trasę";
-            this.ComputeButton.UseVisualStyleBackColor = true;
-            this.ComputeButton.Click += new System.EventHandler(this.ComputeButton_Click);
             // 
             // Form1
             // 
