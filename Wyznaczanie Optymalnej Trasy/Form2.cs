@@ -31,7 +31,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             if (string.IsNullOrWhiteSpace(this.NameBox.Text))
             {
-                IncorrectValuesMessageBox("");
+                IncorrectValuesMessageBox("Nie uzupelniono wymaganego pola z nazwą.");
             }
 
             if (!this.CoordinatesBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
@@ -53,7 +53,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
             }
             else if (this.AddressBoxes.All(box => string.IsNullOrWhiteSpace(box.Text)))
             {
-                IncorrectValuesMessageBox("");
+                IncorrectValuesMessageBox(
+                    "Nie uzupełniono wszystkich wymaganych pól.\n" + 
+                    "Upewnij się, że uzupełniono koordynaty lub adres."
+                    );
             }
             else
             {
