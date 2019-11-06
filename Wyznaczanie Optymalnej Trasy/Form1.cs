@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Wyznaczanie_Optymalnej_Trasy;
 using static System.Windows.Forms.ListView;
+using Simulated_annealing;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -70,9 +71,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
-            var distanceMatrix = data.getSpecificDistances(selectedNames);
-            Console.WriteLine(distanceMatrix.ToString());
-            // TODO: pass distanceMatrix to algorithm
+            var distanceMatrix = new Distance(data.getSpecificDistances(selectedNames));
+            // TODO: parametrize
+            var result = SA.Start_SA(100000000, 0.00001, 0.9999, 1, distanceMatrix);
+            Console.WriteLine(result.ToString());
         }
 
         private void Form1_Load(object sender, EventArgs e)
