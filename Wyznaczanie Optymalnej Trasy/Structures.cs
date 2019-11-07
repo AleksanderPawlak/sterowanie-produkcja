@@ -30,7 +30,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
 
     [Serializable]
-     public class Customer
+     public class Address
     {
         public string Name = default;
         public Coordinates Coordinates = default;
@@ -41,16 +41,16 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public string City = default;
         public string Country = "PL"; // TODO: check if google api accepts country and adjust
 
-        public Customer()
+        public Address()
         { 
         }
 
-        public Customer(string name, decimal latitude, decimal longitude)
+        public Address(string name, decimal latitude, decimal longitude)
         {
             Name = name;
             Coordinates = new Coordinates(latitude, longitude);
         }
-        public Customer(
+        public Address(
             string name, decimal latitude, decimal longitude, string street, int buildingNumber,
             int houseNumber, string zipcode, string city, string country
             )

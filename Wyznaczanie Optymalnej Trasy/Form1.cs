@@ -22,7 +22,23 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             InitializeComponent();
             data = new Data();
+            LoadHomeAddressListview();
             Load_CustomerListview();
+        }
+
+        private void LoadHomeAddressListview()
+        {
+            string[] row = {
+                    data.HomeAddress.Coordinates.Latitude.ToString(),
+                    data.HomeAddress.Coordinates.Longitude.ToString(),
+                    data.HomeAddress.Street,
+                    data.HomeAddress.BuildingNumber.ToString(),
+                    data.HomeAddress.HouseNumber.ToString(),
+                    data.HomeAddress.ZipCode,
+                    data.HomeAddress.City
+                };
+            var listviewItem = new ListViewItem(row);
+            this.HomeAddressListView.Items.Add(listviewItem);
         }
 
         private void Load_CustomerListview()
@@ -30,7 +46,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.CustomerListview.Items.Clear();
             this.CustomersListCheck.Items.Clear();
 
-            foreach (Customer customer in data.CustomersList)
+            foreach (Address customer in data.CustomersList)
             {
                 string[] row = {
                     customer.Name,
@@ -71,7 +87,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
-            var distanceMatrix = new Distance(data.getSpecificDistances(selectedNames));
+            var distanceMatrix = new Distance(data.getSpecifiedDistances(selectedNames));
             // TODO: parametrize
             var result = SA.Start_SA(100000000, 0.00001, 0.9999, 1, distanceMatrix);
             Console.WriteLine(result.ToString());
@@ -81,5 +97,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
 
         }
+
     }
 }

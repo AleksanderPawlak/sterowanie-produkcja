@@ -30,8 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CustomersList = new System.Windows.Forms.TabPage();
-            this.DimensionsRefreshButton = new System.Windows.Forms.Button();
-            this.AddCustomerButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.CustomerListview = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.langitude = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,6 +40,16 @@
             this.local = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.zipcode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.city = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AddCustomerButton = new System.Windows.Forms.Button();
+            this.DimensionsRefreshButton = new System.Windows.Forms.Button();
+            this.HomeAddressListView = new System.Windows.Forms.ListView();
+            this.HomeLangitude = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomeLongitude = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomeStreet = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomeBuildingNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomeLocalNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomeZipCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.HomeCity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Algorithm = new System.Windows.Forms.TabPage();
             this.ComputeButton = new System.Windows.Forms.Button();
             this.CustomersListCheck = new System.Windows.Forms.ListView();
@@ -52,8 +61,11 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.Algorithm.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,9 +82,7 @@
             // 
             // CustomersList
             // 
-            this.CustomersList.Controls.Add(this.DimensionsRefreshButton);
-            this.CustomersList.Controls.Add(this.AddCustomerButton);
-            this.CustomersList.Controls.Add(this.CustomerListview);
+            this.CustomersList.Controls.Add(this.tableLayoutPanel1);
             this.CustomersList.Location = new System.Drawing.Point(4, 40);
             this.CustomersList.Name = "CustomersList";
             this.CustomersList.Padding = new System.Windows.Forms.Padding(3);
@@ -81,27 +91,28 @@
             this.CustomersList.Text = "Lista odbiorców";
             this.CustomersList.UseVisualStyleBackColor = true;
             // 
-            // DimensionsRefreshButton
+            // tableLayoutPanel1
             // 
-            this.DimensionsRefreshButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DimensionsRefreshButton.Location = new System.Drawing.Point(3, 908);
-            this.DimensionsRefreshButton.Name = "DimensionsRefreshButton";
-            this.DimensionsRefreshButton.Size = new System.Drawing.Size(1546, 104);
-            this.DimensionsRefreshButton.TabIndex = 2;
-            this.DimensionsRefreshButton.Text = "Przelicz odległości";
-            this.DimensionsRefreshButton.UseVisualStyleBackColor = true;
-            this.DimensionsRefreshButton.Click += new System.EventHandler(this.DimensionsRefreshButton_Click);
-            // 
-            // AddCustomerButton
-            // 
-            this.AddCustomerButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AddCustomerButton.Location = new System.Drawing.Point(3, 1012);
-            this.AddCustomerButton.Name = "AddCustomerButton";
-            this.AddCustomerButton.Size = new System.Drawing.Size(1546, 104);
-            this.AddCustomerButton.TabIndex = 1;
-            this.AddCustomerButton.Text = "Dodaj odbiorcę";
-            this.AddCustomerButton.UseVisualStyleBackColor = true;
-            this.AddCustomerButton.Click += new System.EventHandler(this.AddCustomerButton_Click);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.CustomerListview, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.AddCustomerButton, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.DimensionsRefreshButton, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.HomeAddressListView, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1546, 1113);
+            this.tableLayoutPanel1.TabIndex = 3;
             // 
             // CustomerListview
             // 
@@ -117,9 +128,9 @@
             this.city});
             this.CustomerListview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerListview.HideSelection = false;
-            this.CustomerListview.Location = new System.Drawing.Point(3, 3);
+            this.CustomerListview.Location = new System.Drawing.Point(3, 244);
             this.CustomerListview.Name = "CustomerListview";
-            this.CustomerListview.Size = new System.Drawing.Size(1546, 1113);
+            this.CustomerListview.Size = new System.Drawing.Size(1540, 655);
             this.CustomerListview.TabIndex = 0;
             this.CustomerListview.UseCompatibleStateImageBehavior = false;
             this.CustomerListview.View = System.Windows.Forms.View.Details;
@@ -163,6 +174,83 @@
             // 
             this.city.Text = "miasto";
             this.city.Width = 267;
+            // 
+            // AddCustomerButton
+            // 
+            this.AddCustomerButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddCustomerButton.Location = new System.Drawing.Point(3, 1009);
+            this.AddCustomerButton.Name = "AddCustomerButton";
+            this.AddCustomerButton.Size = new System.Drawing.Size(1540, 101);
+            this.AddCustomerButton.TabIndex = 1;
+            this.AddCustomerButton.Text = "Dodaj odbiorcę";
+            this.AddCustomerButton.UseVisualStyleBackColor = true;
+            this.AddCustomerButton.Click += new System.EventHandler(this.AddCustomerButton_Click);
+            // 
+            // DimensionsRefreshButton
+            // 
+            this.DimensionsRefreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DimensionsRefreshButton.Location = new System.Drawing.Point(3, 905);
+            this.DimensionsRefreshButton.Name = "DimensionsRefreshButton";
+            this.DimensionsRefreshButton.Size = new System.Drawing.Size(1540, 98);
+            this.DimensionsRefreshButton.TabIndex = 2;
+            this.DimensionsRefreshButton.Text = "Przelicz odległości";
+            this.DimensionsRefreshButton.UseVisualStyleBackColor = true;
+            this.DimensionsRefreshButton.Click += new System.EventHandler(this.DimensionsRefreshButton_Click);
+            // 
+            // HomeAddressListView
+            // 
+            this.HomeAddressListView.BackColor = System.Drawing.SystemColors.Menu;
+            this.HomeAddressListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.HomeLangitude,
+            this.HomeLongitude,
+            this.HomeStreet,
+            this.HomeBuildingNumber,
+            this.HomeLocalNumber,
+            this.HomeZipCode,
+            this.HomeCity});
+            this.HomeAddressListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.HomeAddressListView.HideSelection = false;
+            this.HomeAddressListView.Location = new System.Drawing.Point(3, 40);
+            this.HomeAddressListView.Name = "HomeAddressListView";
+            this.HomeAddressListView.Size = new System.Drawing.Size(1540, 154);
+            this.HomeAddressListView.TabIndex = 3;
+            this.HomeAddressListView.UseCompatibleStateImageBehavior = false;
+            this.HomeAddressListView.View = System.Windows.Forms.View.Details;
+            // 
+            // HomeLangitude
+            // 
+            this.HomeLangitude.Text = "szerokość geogr.";
+            this.HomeLangitude.Width = 225;
+            // 
+            // HomeLongitude
+            // 
+            this.HomeLongitude.Text = "długość geogr.";
+            this.HomeLongitude.Width = 213;
+            // 
+            // HomeStreet
+            // 
+            this.HomeStreet.Text = "ulica";
+            this.HomeStreet.Width = 90;
+            // 
+            // HomeBuildingNumber
+            // 
+            this.HomeBuildingNumber.Text = "nr budynku";
+            this.HomeBuildingNumber.Width = 166;
+            // 
+            // HomeLocalNumber
+            // 
+            this.HomeLocalNumber.Text = "nr lokalu";
+            this.HomeLocalNumber.Width = 159;
+            // 
+            // HomeZipCode
+            // 
+            this.HomeZipCode.Text = "kod pocztowy";
+            this.HomeZipCode.Width = 184;
+            // 
+            // HomeCity
+            // 
+            this.HomeCity.Text = "miasto";
+            this.HomeCity.Width = 288;
             // 
             // Algorithm
             // 
@@ -249,6 +337,28 @@
             this.columnHeader8.Text = "miasto";
             this.columnHeader8.Width = 267;
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1540, 38);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "Adres domowy";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Location = new System.Drawing.Point(3, 200);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(1540, 38);
+            this.textBox2.TabIndex = 6;
+            this.textBox2.Text = "Lista odbiorców";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -261,6 +371,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.CustomersList.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.Algorithm.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -271,17 +383,6 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage CustomersList;
         private System.Windows.Forms.TabPage Algorithm;
-        private System.Windows.Forms.ListView CustomerListview;
-        private System.Windows.Forms.ColumnHeader name;
-        private System.Windows.Forms.ColumnHeader langitude;
-        private System.Windows.Forms.ColumnHeader longitude;
-        private System.Windows.Forms.ColumnHeader street;
-        private System.Windows.Forms.ColumnHeader building;
-        private System.Windows.Forms.ColumnHeader local;
-        private System.Windows.Forms.ColumnHeader zipcode;
-        private System.Windows.Forms.ColumnHeader city;
-        private System.Windows.Forms.Button AddCustomerButton;
-        private System.Windows.Forms.Button DimensionsRefreshButton;
         private System.Windows.Forms.ListView CustomersListCheck;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -292,6 +393,28 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.Button ComputeButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ListView CustomerListview;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader langitude;
+        private System.Windows.Forms.ColumnHeader longitude;
+        private System.Windows.Forms.ColumnHeader street;
+        private System.Windows.Forms.ColumnHeader building;
+        private System.Windows.Forms.ColumnHeader local;
+        private System.Windows.Forms.ColumnHeader zipcode;
+        private System.Windows.Forms.ColumnHeader city;
+        private System.Windows.Forms.Button DimensionsRefreshButton;
+        private System.Windows.Forms.Button AddCustomerButton;
+        private System.Windows.Forms.ListView HomeAddressListView;
+        private System.Windows.Forms.ColumnHeader HomeLangitude;
+        private System.Windows.Forms.ColumnHeader HomeLongitude;
+        private System.Windows.Forms.ColumnHeader HomeStreet;
+        private System.Windows.Forms.ColumnHeader HomeBuildingNumber;
+        private System.Windows.Forms.ColumnHeader HomeLocalNumber;
+        private System.Windows.Forms.ColumnHeader HomeZipCode;
+        private System.Windows.Forms.ColumnHeader HomeCity;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

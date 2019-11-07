@@ -21,25 +21,26 @@ namespace Wyznaczanie_Optymalnej_Trasy
     {
         // Data class should be initialized on program startup.
         static string JsonFilesFolder = @".\..\..";
+        static string HomeAddressFilename = "HomeAddress.json";
         static string CustomersJsonFilename = "Customers.json";
-        static string DimensionMatrixJsonFilename = "DimensionMatrix.json";
-        public List<Customer> CustomersList;
-        public DistanceMatrixResponse.DistanceMatrixRows[] DistanceMatrix;
-        public DistanceMatrixResponse resss;
+        static string DimensionMatrixJsonFilename = "DistancenMatrix.json";
+        public Address HomeAddress;
+        public List<Address> CustomersList;
+        public DistanceMatrixResponse.DistanceMatrixRows[] DistanceMatrix;  // size -> 1 + CustomersList.Count
 
         public Data()
         {
             GoogleSigned.AssignAllServices(new GoogleSigned(Globals.API_KEY));
-            CustomersList = Deserialize<List<Customer>>(CustomersJsonFilename);
+            HomeAddress = Deserialize<Address>(HomeAddressFilename);
+            CustomersList = Deserialize<List<Address>>(CustomersJsonFilename);
             DistanceMatrix = DeserializeDistanceMatrix(DimensionMatrixJsonFilename);
-            resss = Deserialize<DistanceMatrixResponse>("response.json");
         }
 
         ~Data()
         {
-            Serialize<List<Customer>>(CustomersJsonFilename, CustomersList);
+            Serialize<List<Address>>(CustomersJsonFilename, CustomersList);
+            Serialize<Address>(HomeAddressFilename, HomeAddress);
             Serialize<DistanceMatrixResponse.DistanceMatrixRows[]>(DimensionMatrixJsonFilename, DistanceMatrix);
-            Serialize<DistanceMatrixResponse>("response.json", resss);
         }
 
         private T Deserialize<T>(string filename) where T : new()
@@ -92,7 +93,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             string name, decimal latitude, decimal longitude
             )
         {
-            Customer customer = new Customer(name, latitude, longitude);
+            Address customer = new Address(name, latitude, longitude);
             CustomersList.Add(customer);
         }
 
@@ -101,7 +102,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             int houseNumber, string zipcode, string city, string country
             )
         {
-            Customer customer = new Customer(
+            Address customer = new Address(
                 name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country
                 );
             CustomersList.Add(customer);
@@ -111,11 +112,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             if (distanceString.Contains("km"))
             {
-                return Convert.ToDouble(distanceString.Replace(" km", ""));
+                return Convert.ToDouble(distanceString.Replace(" km", "").Replace(".", ","));
             }
             else if (distanceString.Contains("m"))
             {
-                return Convert.ToDouble(distanceString.Replace("m", "")) / 1000.0;
+                return Convert.ToDouble(distanceString.Replace("m", "").Replace(".", ",")) / 1000.0;
             }
             else 
             {
@@ -125,9 +126,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         public void UpdateDistanceMatrix()
         {
-            // TESTED... (should be ok)
-            var origins = new List<Location>(from customer in CustomersList select customer.AsLocation());
-            var destinations = new List<Location>(from customer in CustomersList select customer.AsLocation());
+            var origins = new List<Location>() { HomeAddress.AsLocation() };
+            var destinations = new List<Location>() { HomeAddress.AsLocation() };
+            origins.AddRange(from customer in CustomersList select customer.AsLocation());
+            destinations.AddRange(from customer in CustomersList select customer.AsLocation());
 
             DistanceMatrixRequest request = new DistanceMatrixRequest()
             {
@@ -135,18 +137,18 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 WaypointsDestination = destinations
             };
             var response = new DistanceMatrixService().GetResponse(request);
-            resss = response;  // TODO: remove resss
             DistanceMatrix = response.Rows;
         }
-         
-        // TODO: check if double[,] is ok
-        // TODO: refactor
-        public double[,] getSpecificDistances(List<string> customersNames)
+      
+        public double[,] getSpecifiedDistances(List<string> customersNames)
         {
-            List<int> indexes = Enumerable.Range(0, CustomersList.Count)
-                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList();
+            List<int> indexes = new List<int>() { 0 };
+            indexes.AddRange(Enumerable.Range(0, CustomersList.Count)
+                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList()
+                .Select(x => x + 1).ToList()
+                );
             double[,] distances = new double[indexes.Count(), indexes.Count()];
-            
+
             int res_i = 0;
             foreach (int i in indexes)
             {
