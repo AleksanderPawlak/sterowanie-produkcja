@@ -20,8 +20,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             Result = result;
             Addresses = addresses;
-            InitializeDynamicContent();
             InitializeComponent();
+            InitializeDynamicContent();
         }
     }
 }
