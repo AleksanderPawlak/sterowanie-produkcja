@@ -43,6 +43,73 @@ namespace Wyznaczanie_Optymalnej_Trasy
             Serialize<DistanceMatrixResponse.DistanceMatrixRows[]>(DimensionMatrixJsonFilename, DistanceMatrix);
         }
 
+        public List<Address> AllAddresses()
+        {
+            var addresses = new List<Address>() { HomeAddress };
+            addresses.AddRange(from customer in CustomersList select customer);
+
+            return addresses;
+        }
+
+        public void UpdateDistanceMatrix()
+        {
+            var origins = new List<Location>() { HomeAddress.AsLocation() };
+            var destinations = new List<Location>() { HomeAddress.AsLocation() };
+            origins.AddRange(from customer in CustomersList select customer.AsLocation());
+            destinations.AddRange(from customer in CustomersList select customer.AsLocation());
+
+            DistanceMatrixRequest request = new DistanceMatrixRequest()
+            {
+                WaypointsOrigin = origins,
+                WaypointsDestination = destinations
+            };
+            var response = new DistanceMatrixService().GetResponse(request);
+            DistanceMatrix = response.Rows;
+        }
+
+        public double[,] getSpecifiedDistances(List<string> customersNames)
+        {
+            List<int> indexes = new List<int>() { 0 };
+            indexes.AddRange(Enumerable.Range(0, CustomersList.Count)
+                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList()
+                .Select(x => x + 1).ToList()
+                );
+            double[,] distances = new double[indexes.Count(), indexes.Count()];
+
+            int res_i = 0;
+            foreach (int i in indexes)
+            {
+                int res_j = 0;
+                DistanceMatrixResponse.DistanceMatrixElement[] elements = DistanceMatrix[i].Elements;
+                foreach (int j in indexes)
+                {
+                    distances[res_i, res_j] = DistancestringToDecimal(elements[j].distance.Text);
+                    res_j++;
+                }
+                res_i++;
+            }
+
+            return distances;
+        }
+        public void AddCustomer(
+            string name, decimal latitude, decimal longitude
+            )
+        {
+            Address customer = new Address(name, latitude, longitude);
+            CustomersList.Add(customer);
+        }
+
+        public void AddCustomer(
+            string name, decimal latitude, decimal longitude, string street, int buildingNumber,
+            int houseNumber, string zipcode, string city, string country
+            )
+        {
+            Address customer = new Address(
+                name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country
+                );
+            CustomersList.Add(customer);
+        }
+
         private T Deserialize<T>(string filename) where T : new()
         {
             try
@@ -89,25 +156,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
             System.IO.File.WriteAllText(System.IO.Path.Combine(JsonFilesFolder, filename), jsonData);
         }
 
-        public void AddCustomer(
-            string name, decimal latitude, decimal longitude
-            )
-        {
-            Address customer = new Address(name, latitude, longitude);
-            CustomersList.Add(customer);
-        }
-
-        public void AddCustomer(
-            string name, decimal latitude, decimal longitude, string street, int buildingNumber, 
-            int houseNumber, string zipcode, string city, string country
-            )
-        {
-            Address customer = new Address(
-                name, latitude, longitude, street, buildingNumber, houseNumber, zipcode, city, country
-                );
-            CustomersList.Add(customer);
-        }
-
         private double DistancestringToDecimal(string distanceString)
         {
             if (distanceString.Contains("km"))
@@ -124,45 +172,5 @@ namespace Wyznaczanie_Optymalnej_Trasy
             }
         }
 
-        public void UpdateDistanceMatrix()
-        {
-            var origins = new List<Location>() { HomeAddress.AsLocation() };
-            var destinations = new List<Location>() { HomeAddress.AsLocation() };
-            origins.AddRange(from customer in CustomersList select customer.AsLocation());
-            destinations.AddRange(from customer in CustomersList select customer.AsLocation());
-
-            DistanceMatrixRequest request = new DistanceMatrixRequest()
-            {
-                WaypointsOrigin = origins,
-                WaypointsDestination = destinations
-            };
-            var response = new DistanceMatrixService().GetResponse(request);
-            DistanceMatrix = response.Rows;
-        }
-      
-        public double[,] getSpecifiedDistances(List<string> customersNames)
-        {
-            List<int> indexes = new List<int>() { 0 };
-            indexes.AddRange(Enumerable.Range(0, CustomersList.Count)
-                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList()
-                .Select(x => x + 1).ToList()
-                );
-            double[,] distances = new double[indexes.Count(), indexes.Count()];
-
-            int res_i = 0;
-            foreach (int i in indexes)
-            {
-                int res_j = 0;
-                DistanceMatrixResponse.DistanceMatrixElement[] elements = DistanceMatrix[i].Elements;
-                foreach (int j in indexes)
-                {
-                    distances[res_i, res_j] = DistancestringToDecimal(elements[j].distance.Text);
-                    res_j++;
-                }
-                res_i++;
-            }
-
-            return distances;
-        }
     }
 }

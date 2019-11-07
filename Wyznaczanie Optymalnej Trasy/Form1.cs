@@ -89,8 +89,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
             var distanceMatrix = new Distance(data.getSpecifiedDistances(selectedNames));
             // TODO: parametrize
-            var result = SA.Start_SA(100000000, 0.00001, 0.9999, 1, distanceMatrix);
-            Console.WriteLine(result.ToString());
+            var result = SA.Start_SA(100000000, 0.00001, 0.9999, 2, distanceMatrix);
+            var form = new ResultForm(result, data.AllAddresses());
+            form.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)

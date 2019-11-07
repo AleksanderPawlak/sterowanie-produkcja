@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Simulated_annealing
 {
-    class Sequence
+    public class Sequence
     {
         public int[] Road;
-        private int Car;
+        public int Car;
         private int City;
 
         public Sequence(int car, int city)

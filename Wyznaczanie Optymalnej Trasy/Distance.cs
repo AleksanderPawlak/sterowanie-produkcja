@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Simulated_annealing
 {
-    class Distance
+    public class Distance
     {
         private double[,] distance;
         private double[,] point;
