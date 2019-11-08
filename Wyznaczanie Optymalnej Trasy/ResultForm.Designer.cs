@@ -44,7 +44,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 for (int j = start; j <= currentPosition; j++)
                 {
                     int cityIndex = Result.Road[j];
-                    carAddrssesNames.Add(Addresses[cityIndex].Name);
+                    carAddrssesNames.Add(AddressesNames[cityIndex]);
                 }
 
                 resultAddressesNames.Add(carAddrssesNames);

@@ -14,12 +14,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
     public partial class ResultForm : Form
     {
         private Sequence Result;
-        private List<Address> Addresses;
+        private List<string> AddressesNames;
 
-        public ResultForm(Sequence result, List<Address> addresses)
+        public ResultForm(Sequence result, List<string> addressesNames)
         {
             Result = result;
-            Addresses = addresses;
+            AddressesNames = addressesNames;
             InitializeComponent();
             InitializeDynamicContent();
         }
