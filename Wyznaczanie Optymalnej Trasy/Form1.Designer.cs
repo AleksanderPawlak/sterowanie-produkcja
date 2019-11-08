@@ -53,6 +53,7 @@
             this.HomeCity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Algorithm = new System.Windows.Forms.TabPage();
+            this.ComputeTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ComputeButton = new System.Windows.Forms.Button();
             this.CustomersListCheck = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,10 +64,16 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CarNumberLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.CarsNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.CarNumberTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.Algorithm.SuspendLayout();
+            this.ComputeTableLayoutPanel.SuspendLayout();
+            this.CarNumberLayoutPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CarsNumberNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -276,8 +283,7 @@
             // 
             // Algorithm
             // 
-            this.Algorithm.Controls.Add(this.ComputeButton);
-            this.Algorithm.Controls.Add(this.CustomersListCheck);
+            this.Algorithm.Controls.Add(this.ComputeTableLayoutPanel);
             this.Algorithm.Location = new System.Drawing.Point(4, 40);
             this.Algorithm.Name = "Algorithm";
             this.Algorithm.Padding = new System.Windows.Forms.Padding(3);
@@ -286,12 +292,29 @@
             this.Algorithm.Text = "Wyznacz trasę";
             this.Algorithm.UseVisualStyleBackColor = true;
             // 
+            // ComputeTableLayoutPanel
+            // 
+            this.ComputeTableLayoutPanel.ColumnCount = 1;
+            this.ComputeTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ComputeTableLayoutPanel.Controls.Add(this.ComputeButton, 0, 2);
+            this.ComputeTableLayoutPanel.Controls.Add(this.CustomersListCheck, 0, 0);
+            this.ComputeTableLayoutPanel.Controls.Add(this.CarNumberLayoutPanel, 0, 1);
+            this.ComputeTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ComputeTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.ComputeTableLayoutPanel.Name = "ComputeTableLayoutPanel";
+            this.ComputeTableLayoutPanel.RowCount = 3;
+            this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.17706F));
+            this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.82294F));
+            this.ComputeTableLayoutPanel.Size = new System.Drawing.Size(1546, 1113);
+            this.ComputeTableLayoutPanel.TabIndex = 3;
+            // 
             // ComputeButton
             // 
-            this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ComputeButton.Location = new System.Drawing.Point(3, 1009);
+            this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ComputeButton.Location = new System.Drawing.Point(3, 980);
             this.ComputeButton.Name = "ComputeButton";
-            this.ComputeButton.Size = new System.Drawing.Size(1546, 107);
+            this.ComputeButton.Size = new System.Drawing.Size(1540, 130);
             this.ComputeButton.TabIndex = 2;
             this.ComputeButton.Text = "Wyznacz trasę";
             this.ComputeButton.UseVisualStyleBackColor = true;
@@ -314,7 +337,7 @@
             this.CustomersListCheck.HideSelection = false;
             this.CustomersListCheck.Location = new System.Drawing.Point(3, 3);
             this.CustomersListCheck.Name = "CustomersListCheck";
-            this.CustomersListCheck.Size = new System.Drawing.Size(1546, 1113);
+            this.CustomersListCheck.Size = new System.Drawing.Size(1540, 915);
             this.CustomersListCheck.TabIndex = 1;
             this.CustomersListCheck.UseCompatibleStateImageBehavior = false;
             this.CustomersListCheck.View = System.Windows.Forms.View.Details;
@@ -359,6 +382,59 @@
             this.columnHeader8.Text = "miasto";
             this.columnHeader8.Width = 267;
             // 
+            // CarNumberLayoutPanel
+            // 
+            this.CarNumberLayoutPanel.ColumnCount = 2;
+            this.CarNumberLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.41558F));
+            this.CarNumberLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.58442F));
+            this.CarNumberLayoutPanel.Controls.Add(this.CarsNumberNumericUpDown, 1, 0);
+            this.CarNumberLayoutPanel.Controls.Add(this.CarNumberTextBox, 0, 0);
+            this.CarNumberLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CarNumberLayoutPanel.Location = new System.Drawing.Point(3, 924);
+            this.CarNumberLayoutPanel.Name = "CarNumberLayoutPanel";
+            this.CarNumberLayoutPanel.RowCount = 1;
+            this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.CarNumberLayoutPanel.Size = new System.Drawing.Size(1540, 50);
+            this.CarNumberLayoutPanel.TabIndex = 3;
+            // 
+            // CarsNumberNumericUpDown
+            // 
+            this.CarsNumberNumericUpDown.AutoSize = true;
+            this.CarsNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CarsNumberNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CarsNumberNumericUpDown.Location = new System.Drawing.Point(378, 3);
+            this.CarsNumberNumericUpDown.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.CarsNumberNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CarsNumberNumericUpDown.Name = "CarsNumberNumericUpDown";
+            this.CarsNumberNumericUpDown.Size = new System.Drawing.Size(1159, 45);
+            this.CarsNumberNumericUpDown.TabIndex = 0;
+            this.CarsNumberNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // CarNumberTextBox
+            // 
+            this.CarNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CarNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CarNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.CarNumberTextBox.Location = new System.Drawing.Point(3, 3);
+            this.CarNumberTextBox.Name = "CarNumberTextBox";
+            this.CarNumberTextBox.Size = new System.Drawing.Size(369, 31);
+            this.CarNumberTextBox.TabIndex = 1;
+            this.CarNumberTextBox.Text = "Liczba samochodow";
+            this.CarNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -374,6 +450,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.Algorithm.ResumeLayout(false);
+            this.ComputeTableLayoutPanel.ResumeLayout(false);
+            this.CarNumberLayoutPanel.ResumeLayout(false);
+            this.CarNumberLayoutPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CarsNumberNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,6 +495,10 @@
         private System.Windows.Forms.ColumnHeader HomeCity;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TableLayoutPanel ComputeTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel CarNumberLayoutPanel;
+        private System.Windows.Forms.NumericUpDown CarsNumberNumericUpDown;
+        private System.Windows.Forms.TextBox CarNumberTextBox;
     }
 }
 

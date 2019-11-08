@@ -91,6 +91,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
             return distances;
         }
+
         public void AddCustomer(
             string name, decimal latitude, decimal longitude
             )

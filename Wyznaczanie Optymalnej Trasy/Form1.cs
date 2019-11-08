@@ -87,9 +87,14 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
-            var distanceMatrix = new Distance(data.getSpecifiedDistances(selectedNames));
             // TODO: parametrize
-            var result = SA.Start_SA(100000000, 0.00001, 0.9999, 2, distanceMatrix);
+            var result = SA.Start_SA(
+                100000000,
+                0.00001,
+                0.9999,
+                Convert.ToInt32(this.CarsNumberNumericUpDown.Value.ToString()),
+                new Distance(data.getSpecifiedDistances(selectedNames))
+                );
             var form = new ResultForm(result, data.AllAddresses());
             form.Show();
         }
