@@ -26,21 +26,38 @@ namespace Simulated_annealing
                 Road[i] = 0;
             }
         }
-        public void rand_road()
+        public void rand_road(string type)
         {
             Random rnd = new Random();
             int from = rnd.Next(1, City + Car - 1);
-            int to = rnd.Next(1, City + Car -1);
+            int to = rnd.Next(1, City + Car - 1);
             if (from > to)
             {
                 from = to - from + (to = from);
             }
-            int temp = Road[from];
-            for (int i = from; i < to; i++)
+
+            switch (type)
             {
-                Road[i] = Road[i + 1];
+                case "insert":
+                    int temp = Road[from];
+                    for (int i = from; i < to; i++)
+                    {
+                        Road[i] = Road[i + 1];
+                    }
+                    Road[to] = temp;
+                    break;
+                case "swap":
+                    Road[from] = Road[to] - Road[from] + (Road[to] = Road[from]);
+                    break;
+                case "invert":
+                    for (int i = 0; i < decimal.ToInt32(Math.Floor(new decimal((to - from)/2))); i++)
+                    {
+                        Road[from + i] = Road[to - i] - Road[from + i] + (Road[to - i] = Road[from + i]);
+                    }
+                    break;
+                default:
+                    break;
             }
-            Road[to] = temp;
         }
         public void print_road()
         {

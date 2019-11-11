@@ -17,17 +17,20 @@ namespace Simulated_annealing
             //Console.WriteLine("dystans dla trasy początkowej: " + tgw.Road_distance(dist));
             while (T >= Tk)
             {
-                t.rand_road();
+                t.rand_road("insert");
                 tpr.copy(t);
-                if (tgw.Road_distance(dist) > t.Road_distance(dist))
+                double tgw_d = tgw.Road_distance(dist);
+                double t_d = t.Road_distance(dist);
+                double tpr_d = tpr.Road_distance(dist);
+                if (tgw_d > t_d)
                 {
                     tgw.copy(t);
                 }
-                if (tpr.Road_distance(dist) - t.Road_distance(dist) <= 0)
+                if (tpr_d - t_d <= 0)
                 {
                     t.copy(tpr);
                 }
-                else if (new Random().NextDouble() <= Math.Exp(-(tpr.Road_distance(dist) - t.Road_distance(dist)) / T))
+                else if (new Random().NextDouble() <= Math.Exp(-(tpr_d - t_d) / T))
                 {
                     t.copy(tpr);
                 }
