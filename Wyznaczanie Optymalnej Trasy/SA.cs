@@ -14,7 +14,7 @@ namespace Simulated_annealing
             Sequence t = new Sequence(Car, dist.City);
             Sequence tpr = new Sequence(Car, dist.City);
             Sequence tgw = new Sequence(Car, dist.City);
-            Console.WriteLine("dystans dla trasy początkowej: " + tgw.Road_distance(dist));
+            //Console.WriteLine("dystans dla trasy początkowej: " + tgw.Road_distance(dist));
             while (T >= Tk)
             {
                 t.rand_road();
