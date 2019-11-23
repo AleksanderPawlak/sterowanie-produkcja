@@ -38,7 +38,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 int start = Array.IndexOf(Result.Road, 0, currentPosition);
                 currentPosition = Array.IndexOf(Result.Road, 0, start + 1);
                 List<string> carAddrssesNames = new List<string>();
-                if ((currentPosition - start + 1) > maxCarAddresses) 
+                if ((currentPosition - start + 1) > maxCarAddresses)
                 { maxCarAddresses = currentPosition - start + 1; }
 
                 for (int j = start; j <= currentPosition; j++)
@@ -65,7 +65,15 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
                 for (int j = 0; j < Result.Car; j++)
                 {
-                    row.Add(resultAddressesNames[j].ElementAtOrDefault(i));
+                    if (resultAddressesNames[j].Count == 2)
+                    {
+                        string info = i == 0 ? "Samochod nie powinien wyjezdzac" : "";
+                        row.Add(info);
+                    }
+                    else
+                    {
+                        row.Add(resultAddressesNames[j].ElementAtOrDefault(i));
+                    }
                 }
 
                 var listviewItem = new ListViewItem(row.ToArray());
