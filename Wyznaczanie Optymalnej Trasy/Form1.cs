@@ -32,8 +32,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     data.HomeAddress.Coordinates.Latitude.ToString(),
                     data.HomeAddress.Coordinates.Longitude.ToString(),
                     data.HomeAddress.Street,
-                    data.HomeAddress.BuildingNumber.ToString(),
-                    data.HomeAddress.HouseNumber.ToString(),
+                    AddressIntToString(data.HomeAddress.BuildingNumber),
+                    AddressIntToString(data.HomeAddress.HouseNumber),
                     data.HomeAddress.ZipCode,
                     data.HomeAddress.City
                 };
@@ -53,8 +53,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     customer.Coordinates.Latitude.ToString(),
                     customer.Coordinates.Longitude.ToString(),
                     customer.Street,
-                    customer.BuildingNumber.ToString(),
-                    customer.HouseNumber.ToString(),
+                    AddressIntToString(customer.BuildingNumber),
+                    AddressIntToString(customer.HouseNumber),
                     customer.ZipCode,
                     customer.City
                 };
@@ -102,10 +102,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
             form.Show();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        static string AddressIntToString(int value)
         {
-
+            return value != 0 ? value.ToString() : "";
         }
-
     }
 }

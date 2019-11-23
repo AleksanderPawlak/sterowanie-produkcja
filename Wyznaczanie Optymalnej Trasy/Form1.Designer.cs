@@ -84,7 +84,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1560, 1163);
+            this.tabControl1.Size = new System.Drawing.Size(1668, 1412);
             this.tabControl1.TabIndex = 0;
             // 
             // CustomersList
@@ -93,7 +93,7 @@
             this.CustomersList.Location = new System.Drawing.Point(4, 40);
             this.CustomersList.Name = "CustomersList";
             this.CustomersList.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomersList.Size = new System.Drawing.Size(1552, 1119);
+            this.CustomersList.Size = new System.Drawing.Size(1660, 1368);
             this.CustomersList.TabIndex = 0;
             this.CustomersList.Text = "Lista odbiorców";
             this.CustomersList.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1546, 1113);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1654, 1362);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // textBox2
@@ -127,7 +127,7 @@
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox2.Location = new System.Drawing.Point(3, 200);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(1540, 38);
+            this.textBox2.Size = new System.Drawing.Size(1648, 38);
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = "Lista odbiorców";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -148,7 +148,7 @@
             this.CustomerListview.HideSelection = false;
             this.CustomerListview.Location = new System.Drawing.Point(3, 244);
             this.CustomerListview.Name = "CustomerListview";
-            this.CustomerListview.Size = new System.Drawing.Size(1540, 655);
+            this.CustomerListview.Size = new System.Drawing.Size(1648, 904);
             this.CustomerListview.TabIndex = 0;
             this.CustomerListview.UseCompatibleStateImageBehavior = false;
             this.CustomerListview.View = System.Windows.Forms.View.Details;
@@ -196,9 +196,9 @@
             // AddCustomerButton
             // 
             this.AddCustomerButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddCustomerButton.Location = new System.Drawing.Point(3, 1009);
+            this.AddCustomerButton.Location = new System.Drawing.Point(3, 1258);
             this.AddCustomerButton.Name = "AddCustomerButton";
-            this.AddCustomerButton.Size = new System.Drawing.Size(1540, 101);
+            this.AddCustomerButton.Size = new System.Drawing.Size(1648, 101);
             this.AddCustomerButton.TabIndex = 1;
             this.AddCustomerButton.Text = "Dodaj odbiorcę";
             this.AddCustomerButton.UseVisualStyleBackColor = true;
@@ -207,9 +207,9 @@
             // DimensionsRefreshButton
             // 
             this.DimensionsRefreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DimensionsRefreshButton.Location = new System.Drawing.Point(3, 905);
+            this.DimensionsRefreshButton.Location = new System.Drawing.Point(3, 1154);
             this.DimensionsRefreshButton.Name = "DimensionsRefreshButton";
-            this.DimensionsRefreshButton.Size = new System.Drawing.Size(1540, 98);
+            this.DimensionsRefreshButton.Size = new System.Drawing.Size(1648, 98);
             this.DimensionsRefreshButton.TabIndex = 2;
             this.DimensionsRefreshButton.Text = "Przelicz odległości";
             this.DimensionsRefreshButton.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             this.HomeAddressListView.HideSelection = false;
             this.HomeAddressListView.Location = new System.Drawing.Point(3, 40);
             this.HomeAddressListView.Name = "HomeAddressListView";
-            this.HomeAddressListView.Size = new System.Drawing.Size(1540, 154);
+            this.HomeAddressListView.Size = new System.Drawing.Size(1648, 154);
             this.HomeAddressListView.TabIndex = 3;
             this.HomeAddressListView.UseCompatibleStateImageBehavior = false;
             this.HomeAddressListView.View = System.Windows.Forms.View.Details;
@@ -276,7 +276,7 @@
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox1.Location = new System.Drawing.Point(3, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1540, 38);
+            this.textBox1.Size = new System.Drawing.Size(1648, 38);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Adres domowy";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -287,7 +287,7 @@
             this.Algorithm.Location = new System.Drawing.Point(4, 40);
             this.Algorithm.Name = "Algorithm";
             this.Algorithm.Padding = new System.Windows.Forms.Padding(3);
-            this.Algorithm.Size = new System.Drawing.Size(1552, 1119);
+            this.Algorithm.Size = new System.Drawing.Size(1660, 1368);
             this.Algorithm.TabIndex = 1;
             this.Algorithm.Text = "Wyznacz trasę";
             this.Algorithm.UseVisualStyleBackColor = true;
@@ -306,15 +306,15 @@
             this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.17706F));
             this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.82294F));
-            this.ComputeTableLayoutPanel.Size = new System.Drawing.Size(1546, 1113);
+            this.ComputeTableLayoutPanel.Size = new System.Drawing.Size(1654, 1362);
             this.ComputeTableLayoutPanel.TabIndex = 3;
             // 
             // ComputeButton
             // 
             this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ComputeButton.Location = new System.Drawing.Point(3, 980);
+            this.ComputeButton.Location = new System.Drawing.Point(3, 1197);
             this.ComputeButton.Name = "ComputeButton";
-            this.ComputeButton.Size = new System.Drawing.Size(1540, 130);
+            this.ComputeButton.Size = new System.Drawing.Size(1648, 162);
             this.ComputeButton.TabIndex = 2;
             this.ComputeButton.Text = "Wyznacz trasę";
             this.ComputeButton.UseVisualStyleBackColor = true;
@@ -337,7 +337,7 @@
             this.CustomersListCheck.HideSelection = false;
             this.CustomersListCheck.Location = new System.Drawing.Point(3, 3);
             this.CustomersListCheck.Name = "CustomersListCheck";
-            this.CustomersListCheck.Size = new System.Drawing.Size(1540, 915);
+            this.CustomersListCheck.Size = new System.Drawing.Size(1648, 1132);
             this.CustomersListCheck.TabIndex = 1;
             this.CustomersListCheck.UseCompatibleStateImageBehavior = false;
             this.CustomersListCheck.View = System.Windows.Forms.View.Details;
@@ -390,12 +390,12 @@
             this.CarNumberLayoutPanel.Controls.Add(this.CarsNumberNumericUpDown, 1, 0);
             this.CarNumberLayoutPanel.Controls.Add(this.CarNumberTextBox, 0, 0);
             this.CarNumberLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CarNumberLayoutPanel.Location = new System.Drawing.Point(3, 924);
+            this.CarNumberLayoutPanel.Location = new System.Drawing.Point(3, 1141);
             this.CarNumberLayoutPanel.Name = "CarNumberLayoutPanel";
             this.CarNumberLayoutPanel.RowCount = 1;
             this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.CarNumberLayoutPanel.Size = new System.Drawing.Size(1540, 50);
+            this.CarNumberLayoutPanel.Size = new System.Drawing.Size(1648, 50);
             this.CarNumberLayoutPanel.TabIndex = 3;
             // 
             // CarsNumberNumericUpDown
@@ -403,7 +403,7 @@
             this.CarsNumberNumericUpDown.AutoSize = true;
             this.CarsNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CarsNumberNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CarsNumberNumericUpDown.Location = new System.Drawing.Point(378, 3);
+            this.CarsNumberNumericUpDown.Location = new System.Drawing.Point(405, 3);
             this.CarsNumberNumericUpDown.Maximum = new decimal(new int[] {
             50,
             0,
@@ -415,7 +415,7 @@
             0,
             0});
             this.CarsNumberNumericUpDown.Name = "CarsNumberNumericUpDown";
-            this.CarsNumberNumericUpDown.Size = new System.Drawing.Size(1159, 45);
+            this.CarsNumberNumericUpDown.Size = new System.Drawing.Size(1240, 45);
             this.CarsNumberNumericUpDown.TabIndex = 0;
             this.CarsNumberNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -430,7 +430,7 @@
             this.CarNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.CarNumberTextBox.Location = new System.Drawing.Point(3, 3);
             this.CarNumberTextBox.Name = "CarNumberTextBox";
-            this.CarNumberTextBox.Size = new System.Drawing.Size(369, 31);
+            this.CarNumberTextBox.Size = new System.Drawing.Size(396, 31);
             this.CarNumberTextBox.TabIndex = 1;
             this.CarNumberTextBox.Text = "Liczba samochodow";
             this.CarNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -440,11 +440,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1560, 1163);
+            this.ClientSize = new System.Drawing.Size(1668, 1412);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Wyznaczanie optymalnej trasy";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.CustomersList.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
