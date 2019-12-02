@@ -13,15 +13,18 @@ namespace Wyznaczanie_Optymalnej_Trasy
 {
     public partial class ResultForm : Form
     {
+        // TODO: simplify structure and change structures
         private Sequence Result;
-        private List<string> AddressesNames;
+        private List<Address> AddressesNames;
+        List<List<string>> resultAddressesNames = new List<List<string>>();
 
-        public ResultForm(Sequence result, List<string> addressesNames)
+        public ResultForm(Sequence result, List<Address> addressesNames)
         {
             Result = result;
             AddressesNames = addressesNames;
             InitializeComponent();
             InitializeDynamicContent();
+            InitializeMap();
         }
     }
 }

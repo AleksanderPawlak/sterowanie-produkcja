@@ -87,8 +87,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
-            List<string> allNames = new List<string>() { data.HomeAddress.Name };
-            allNames.AddRange(selectedNames);
+            List<Address> allNames = new List<Address>() { data.HomeAddress };
+            allNames.AddRange(data.CustomersList.Where(x => selectedNames.Contains(x.Name)));
             // TODO: parametrize
             var result = SA.Start_SA(
                 100000000,
