@@ -29,6 +29,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
             base.Dispose(disposing);
         }
 
+        private void InitializeDynamicMapButtons()
+        { }
+
         private void InitializeMap()
         {
             GMap.NET.MapProviders.GMapProviders.GoogleMap.ApiKey = Globals.API_KEY;
@@ -38,9 +41,16 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 Convert.ToDouble(AddressesNames[0].Coordinates.Latitude),
                 Convert.ToDouble(AddressesNames[0].Coordinates.Longitude)
                 );
-            GMapOverlay markersOverlay = new GMapOverlay("markers");
 
-            for (int i = 0; i < resultAddressesNames[0].Count; i++)
+            DrawMapRouteAndMarkers(0);
+        }
+
+        private void DrawMapRouteAndMarkers(int carNumber)
+        {
+            // TODO: refactor
+            // Markers
+            GMapOverlay markersOverlay = new GMapOverlay("markers");
+            for (int i = 0; i < resultAddressesNames[carNumber].Count; i++)
             {
                 var markerAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[0][i]);
                 GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(markerAddress.Coordinates.Latitude),
@@ -49,14 +59,14 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 markersOverlay.Markers.Add(marker);
             }
 
+            // Routes
             List<PointLatLng> RoutePoints = new List<PointLatLng>();
-            //foreach (var addressName in resultAddressesNames[0])
-            for (int i=0; i < resultAddressesNames[0].Count - 1; i++)
+            for (int i = 0; i < resultAddressesNames[carNumber].Count - 1; i++)
             {
                 var startAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[0][i]);
                 var endAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[0][i + 1]);
                 PointLatLng start = new GMap.NET.PointLatLng(
-                    Convert.ToDouble(startAddress.Coordinates.Latitude), 
+                    Convert.ToDouble(startAddress.Coordinates.Latitude),
                     Convert.ToDouble(startAddress.Coordinates.Longitude)
                     );
                 PointLatLng end = new GMap.NET.PointLatLng(
@@ -71,15 +81,15 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 RoutePoints.AddRange(ss.Route);
             }
 
-            GMapRoute r = new GMapRoute(RoutePoints, "My route");
+            GMapRoute route = new GMapRoute(RoutePoints, "My route");
             GMapOverlay routesOverlay = new GMapOverlay("routes");
-            r.Stroke = new Pen(Color.Red, 3);
-            routesOverlay.Routes.Add(r);
+            route.Stroke = new Pen(Color.Orange, 2);
+            routesOverlay.Routes.Add(route);
             gMapControl1.Overlays.Add(routesOverlay);
             gMapControl1.Overlays.Add(markersOverlay);
         }
 
-        private void InitializeDynamicContent()
+        private void InitializeResultTable()
         {
             //TODO: refactor this ugly solution
             this.ResultListViewHeaders = new List<System.Windows.Forms.ColumnHeader>();
@@ -151,9 +161,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.OrderTab = new System.Windows.Forms.TabPage();
             this.MapTab = new System.Windows.Forms.TabPage();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.MapTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.ResultTabControl.SuspendLayout();
             this.OrderTab.SuspendLayout();
             this.MapTab.SuspendLayout();
+            this.MapTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // ResultListView
@@ -191,7 +203,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // MapTab
             // 
-            this.MapTab.Controls.Add(this.gMapControl1);
+            this.MapTab.Controls.Add(this.MapTableLayoutPanel);
             this.MapTab.Location = new System.Drawing.Point(4, 40);
             this.MapTab.Name = "MapTab";
             this.MapTab.Padding = new System.Windows.Forms.Padding(3);
@@ -223,9 +235,23 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(1616, 760);
+            this.gMapControl1.Size = new System.Drawing.Size(1433, 754);
             this.gMapControl1.TabIndex = 0;
             this.gMapControl1.Zoom = 13D;
+            // 
+            // MapTableLayoutPanel
+            // 
+            this.MapTableLayoutPanel.ColumnCount = 2;
+            this.MapTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.10891F));
+            this.MapTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.89109F));
+            this.MapTableLayoutPanel.Controls.Add(this.gMapControl1, 0, 0);
+            this.MapTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MapTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.MapTableLayoutPanel.Name = "MapTableLayoutPanel";
+            this.MapTableLayoutPanel.RowCount = 1;
+            this.MapTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.MapTableLayoutPanel.Size = new System.Drawing.Size(1616, 760);
+            this.MapTableLayoutPanel.TabIndex = 1;
             // 
             // ResultForm
             // 
@@ -238,6 +264,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.ResultTabControl.ResumeLayout(false);
             this.OrderTab.ResumeLayout(false);
             this.MapTab.ResumeLayout(false);
+            this.MapTableLayoutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -251,5 +278,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
         private TabPage OrderTab;
         private TabPage MapTab;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private TableLayoutPanel MapTableLayoutPanel;
     }
 }

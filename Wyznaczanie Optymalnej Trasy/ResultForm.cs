@@ -23,7 +23,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             Result = result;
             AddressesNames = addressesNames;
             InitializeComponent();
-            InitializeDynamicContent();
+            InitializeResultTable();
             InitializeMap();
         }
     }
