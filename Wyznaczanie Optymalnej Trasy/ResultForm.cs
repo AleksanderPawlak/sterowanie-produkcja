@@ -25,6 +25,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             InitializeComponent();
             InitializeResultTable();
             InitializeMap();
+            InitializeDynamicMapButtons();
         }
     }
 }
