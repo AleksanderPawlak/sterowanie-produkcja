@@ -70,60 +70,67 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void MapCarButton_Click(object sender, EventArgs e, int carNumber)
         {
-            try
-            {
                 DrawMapRouteAndMarkers(carNumber);
+        }
+
+        private void DrawMapRouteAndMarkers(int carNumber)
+        {
+            // TODO: refactor
+            try
+            { 
+                this.markersOverlay.Markers.Clear();
+                this.routesOverlay.Routes.Clear();
+                this.gMapControl1.Overlays.Clear();
+
+                if (resultAddressesNames[carNumber].Count == 2) // XD Car without route
+                    return;
+
+                // Markers
+                for (int i = 0; i < resultAddressesNames[carNumber].Count - 1; i++)
+                {
+                    var markerAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i]);
+                    GmapMarkerWithLabel marker = new GmapMarkerWithLabel(
+                        new PointLatLng(Convert.ToDouble(markerAddress.Coordinates.Latitude),
+                        Convert.ToDouble(markerAddress.Coordinates.Longitude)),
+                        (i + 1).ToString(),
+                        GMarkerGoogleType.green
+                        );
+                    this.markersOverlay.Markers.Add(marker);
+                }
+
+                // Routes
+                List<PointLatLng> RoutePoints = new List<PointLatLng>();
+                for (int i = 0; i < resultAddressesNames[carNumber].Count - 1; i++)
+                {
+                    var startAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i]);
+                    var endAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i + 1]);
+                    PointLatLng start = new GMap.NET.PointLatLng(
+                        Convert.ToDouble(startAddress.Coordinates.Latitude),
+                        Convert.ToDouble(startAddress.Coordinates.Longitude)
+                        );
+                    PointLatLng end = new GMap.NET.PointLatLng(
+                        Convert.ToDouble(endAddress.Coordinates.Latitude),
+                        Convert.ToDouble(endAddress.Coordinates.Longitude)
+                    );
+                    GDirections ss = null;
+                    var xx = GMap.NET.MapProviders.GMapProviders.GoogleMap.GetDirections(
+                        out ss, start, end, false, false, false, false, true
+                        );
+
+                    RoutePoints.AddRange(ss.Route);
+                }
+
+                GMapRoute route = new GMapRoute(RoutePoints, "My route");
+                route.Stroke = new Pen(Color.Orange, 2);
+                this.routesOverlay.Routes.Add(route);
+                this.gMapControl1.Overlays.Add(routesOverlay);
+                this.gMapControl1.Overlays.Add(markersOverlay);
             }
             catch (Exception drawingException)
             {
                 // TODO: do something
                 Console.WriteLine("Route drawing error");
             }
-        }
-
-        private void DrawMapRouteAndMarkers(int carNumber)
-        {
-            // TODO: refactor
-            this.markersOverlay.Markers.Clear();
-            this.routesOverlay.Routes.Clear();
-            this.gMapControl1.Overlays.Clear();
-            // Markers
-            for (int i = 0; i < resultAddressesNames[carNumber].Count; i++)
-            {
-                var markerAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i]);
-                GMarkerGoogle marker = new GMarkerGoogle(new PointLatLng(Convert.ToDouble(markerAddress.Coordinates.Latitude),
-                    Convert.ToDouble(markerAddress.Coordinates.Longitude)),
-                    GMarkerGoogleType.green);
-                this.markersOverlay.Markers.Add(marker);
-            }
-
-            // Routes
-            List<PointLatLng> RoutePoints = new List<PointLatLng>();
-            for (int i = 0; i < resultAddressesNames[carNumber].Count - 1; i++)
-            {
-                var startAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i]);
-                var endAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i + 1]);
-                PointLatLng start = new GMap.NET.PointLatLng(
-                    Convert.ToDouble(startAddress.Coordinates.Latitude),
-                    Convert.ToDouble(startAddress.Coordinates.Longitude)
-                    );
-                PointLatLng end = new GMap.NET.PointLatLng(
-                    Convert.ToDouble(endAddress.Coordinates.Latitude),
-                    Convert.ToDouble(endAddress.Coordinates.Longitude)
-                );
-                GDirections ss = null;
-                var xx = GMap.NET.MapProviders.GMapProviders.GoogleMap.GetDirections(
-                    out ss, start, end, false, false, false, false, true
-                    );
-
-                RoutePoints.AddRange(ss.Route);
-            }
-
-            GMapRoute route = new GMapRoute(RoutePoints, "My route");
-            route.Stroke = new Pen(Color.Orange, 2);
-            this.routesOverlay.Routes.Add(route);
-            this.gMapControl1.Overlays.Add(routesOverlay);
-            this.gMapControl1.Overlays.Add(markersOverlay);
         }
 
         private void InitializeResultTable()
