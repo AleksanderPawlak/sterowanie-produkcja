@@ -8,6 +8,18 @@ using Google.Maps;
 namespace Wyznaczanie_Optymalnej_Trasy
 {
     [Serializable]
+    public enum Day
+    { 
+        Mon,
+        Tue,
+        Wed,
+        Thu,
+        Fri,
+        Sat,
+        Sun
+    }
+
+    [Serializable]
     public struct Coordinates
     {
         public decimal Latitude;
@@ -27,8 +39,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             return d;
         }
     }
-
-
+  
     [Serializable]
      public class Address
     {
@@ -40,6 +51,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public string ZipCode = default;
         public string City = default;
         public string Country = "PL"; // TODO: check if google api accepts country and adjust
+        public Day[] DeliveryDays = new Day[7];  // TODO: create setter with size limit
 
         public Address()
         { 
@@ -63,6 +75,27 @@ namespace Wyznaczanie_Optymalnej_Trasy
             ZipCode = zipcode;
             City = city;
             Country = country;
+        }
+
+        public Address(
+            string name, decimal latitude, decimal longitude, string street, int buildingNumber,
+            int houseNumber, string zipcode, string city, string country, Day[] deliveryDays
+            )
+        {
+            Name = name;
+            Coordinates = new Coordinates(latitude, longitude);
+            Street = street;
+            BuildingNumber = buildingNumber;
+            HouseNumber = houseNumber;
+            ZipCode = zipcode;
+            City = city;
+            Country = country;
+            DeliveryDays = deliveryDays;
+        }
+
+        public bool isSubscribedForDay(Day day)
+        {
+            return DeliveryDays.Contains(day);
         }
 
         public Location AsLocation()

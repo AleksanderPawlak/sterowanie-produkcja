@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Google.Maps;
 using Google.Maps.DistanceMatrix;
+using System.Text.RegularExpressions;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -14,7 +15,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     static class Globals
     {
         public const bool AllowGoogleApiOperations = true;
-        public const string API_KEY = "AIzaSyBcSHzRRLZS3A75NtACh2YLIyu_4z25T5w";
+        public const string API_KEY = "";
     }
 
     public class Data
@@ -67,6 +68,22 @@ namespace Wyznaczanie_Optymalnej_Trasy
             DistanceMatrix = response.Rows;
         }
 
+        public double[,] getDistancesForSpecifiedDay(Day day)
+        { 
+            List<string> customers = (from user in CustomersList
+                                      where user.isSubscribedForDay(day)
+                                      select user.Name).ToList();
+            return getSpecifiedDistances(customers);
+        }
+
+        public double[,] getDurationsForSpecifiedDay(Day day)
+        {
+            List<string> customers = (from user in CustomersList
+                                      where user.isSubscribedForDay(day)
+                                      select user.Name).ToList();
+            return getSpecifiedDurations(customers);
+        }
+
         public double[,] getSpecifiedDistances(List<string> customersNames)
         {
             List<int> indexes = new List<int>() { 0 };
@@ -90,6 +107,31 @@ namespace Wyznaczanie_Optymalnej_Trasy
             }
 
             return distances;
+        }
+
+        public double[,] getSpecifiedDurations(List<string> customersNames)
+        {
+            List<int> indexes = new List<int>() { 0 };
+            indexes.AddRange(Enumerable.Range(0, CustomersList.Count)
+                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList()
+                .Select(x => x + 1).ToList()
+                );
+            double[,] durations = new double[indexes.Count(), indexes.Count()];
+
+            int res_i = 0;
+            foreach (int i in indexes)
+            {
+                int res_j = 0;
+                DistanceMatrixResponse.DistanceMatrixElement[] elements = DistanceMatrix[i].Elements;
+                foreach (int j in indexes)
+                {
+                    durations[res_i, res_j] = DurationStringToDecimal(elements[j].duration.Text);
+                    res_j++;
+                }
+                res_i++;
+            }
+
+            return durations;
         }
 
         public void AddCustomer(
@@ -155,6 +197,29 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             string jsonData = JsonConvert.SerializeObject(data);
             System.IO.File.WriteAllText(System.IO.Path.Combine(JsonFilesFolder, filename), jsonData);
+        }
+
+        private double DurationStringToDecimal(string durationString)
+        {
+            // TODO: refactor and optimize
+            double result = 0.0;
+
+            string hoursPattern = @"(\d+)(?=\shour)";
+            string minsPattern = @"(\d+)(?=\smin)";
+
+            Regex rH = new Regex(hoursPattern, RegexOptions.IgnoreCase);
+            Match mH = rH.Match(durationString);
+
+            string hString = mH.Groups.Count == 2 ? mH.Groups[1].ToString() : "0";
+            result += Convert.ToDouble(hString);
+
+            Regex rM = new Regex(minsPattern, RegexOptions.IgnoreCase);
+            Match mM = rM.Match(durationString);
+
+            string mString = mM.Groups.Count == 2 ? mM.Groups[1].ToString() : "0";
+            result += Convert.ToDouble(mString) / 60.0;
+
+            return result;
         }
 
         private double DistancestringToDecimal(string distanceString)

@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarFleetExpansionAlgorithm.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Distance.cs" />
     <Compile Include="Form1.cs">
