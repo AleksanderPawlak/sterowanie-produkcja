@@ -68,19 +68,19 @@ namespace Wyznaczanie_Optymalnej_Trasy
             DistanceMatrix = response.Rows;
         }
 
-        public double[,] getDistancesForSpecifiedDay(Day day)
+        public double[,] getDistancesForSpecifiedDay(Address.Day day)
         { 
             List<string> customers = (from user in CustomersList
                                       where user.isSubscribedForDay(day)
-                                      select user.Name).ToList();
+                                      select user.name).ToList();
             return getSpecifiedDistances(customers);
         }
 
-        public double[,] getDurationsForSpecifiedDay(Day day)
+        public double[,] getDurationsForSpecifiedDay(Address.Day day)
         {
             List<string> customers = (from user in CustomersList
                                       where user.isSubscribedForDay(day)
-                                      select user.Name).ToList();
+                                      select user.name).ToList();
             return getSpecifiedDurations(customers);
         }
 
@@ -88,7 +88,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             List<int> indexes = new List<int>() { 0 };
             indexes.AddRange(Enumerable.Range(0, CustomersList.Count)
-                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList()
+                .Where(i => customersNames.Contains(CustomersList[i].name)).ToList()
                 .Select(x => x + 1).ToList()
                 );
             double[,] distances = new double[indexes.Count(), indexes.Count()];
@@ -113,7 +113,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             List<int> indexes = new List<int>() { 0 };
             indexes.AddRange(Enumerable.Range(0, CustomersList.Count)
-                .Where(i => customersNames.Contains(CustomersList[i].Name)).ToList()
+                .Where(i => customersNames.Contains(CustomersList[i].name)).ToList()
                 .Select(x => x + 1).ToList()
                 );
             double[,] durations = new double[indexes.Count(), indexes.Count()];

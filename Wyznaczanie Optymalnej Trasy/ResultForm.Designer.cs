@@ -61,8 +61,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
             gMapControl1.MapProvider = GMap.NET.MapProviders.GMapProviders.GoogleMap;
             GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
             gMapControl1.Position = new GMap.NET.PointLatLng(
-                Convert.ToDouble(AddressesNames[0].Coordinates.Latitude),
-                Convert.ToDouble(AddressesNames[0].Coordinates.Longitude)
+                Convert.ToDouble(AddressesNames[0].addressCoordinates.latitude),
+                Convert.ToDouble(AddressesNames[0].addressCoordinates.longitude)
                 );
 
             DrawMapRouteAndMarkers(0);
@@ -88,10 +88,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 // Markers
                 for (int i = 0; i < resultAddressesNames[carNumber].Count - 1; i++)
                 {
-                    var markerAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i]);
+                    var markerAddress = AddressesNames.Find(x => x.name == resultAddressesNames[carNumber][i]);
                     GmapMarkerWithLabel marker = new GmapMarkerWithLabel(
-                        new PointLatLng(Convert.ToDouble(markerAddress.Coordinates.Latitude),
-                        Convert.ToDouble(markerAddress.Coordinates.Longitude)),
+                        new PointLatLng(Convert.ToDouble(markerAddress.addressCoordinates.latitude),
+                        Convert.ToDouble(markerAddress.addressCoordinates.longitude)),
                         (i + 1).ToString(),
                         GMarkerGoogleType.green
                         );
@@ -102,15 +102,15 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 List<PointLatLng> RoutePoints = new List<PointLatLng>();
                 for (int i = 0; i < resultAddressesNames[carNumber].Count - 1; i++)
                 {
-                    var startAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i]);
-                    var endAddress = AddressesNames.Find(x => x.Name == resultAddressesNames[carNumber][i + 1]);
+                    var startAddress = AddressesNames.Find(x => x.name == resultAddressesNames[carNumber][i]);
+                    var endAddress = AddressesNames.Find(x => x.name == resultAddressesNames[carNumber][i + 1]);
                     PointLatLng start = new GMap.NET.PointLatLng(
-                        Convert.ToDouble(startAddress.Coordinates.Latitude),
-                        Convert.ToDouble(startAddress.Coordinates.Longitude)
+                        Convert.ToDouble(startAddress.addressCoordinates.latitude),
+                        Convert.ToDouble(startAddress.addressCoordinates.longitude)
                         );
                     PointLatLng end = new GMap.NET.PointLatLng(
-                        Convert.ToDouble(endAddress.Coordinates.Latitude),
-                        Convert.ToDouble(endAddress.Coordinates.Longitude)
+                        Convert.ToDouble(endAddress.addressCoordinates.latitude),
+                        Convert.ToDouble(endAddress.addressCoordinates.longitude)
                     );
                     GDirections ss = null;
                     var xx = GMap.NET.MapProviders.GMapProviders.GoogleMap.GetDirections(
@@ -153,7 +153,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 for (int j = start; j <= currentPosition; j++)
                 {
                     int cityIndex = Result.Road[j];
-                    carAddrssesNames.Add(AddressesNames[cityIndex].Name);
+                    carAddrssesNames.Add(AddressesNames[cityIndex].name);
                 }
 
                 resultAddressesNames.Add(carAddrssesNames);

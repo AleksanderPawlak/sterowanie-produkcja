@@ -29,13 +29,13 @@ namespace Wyznaczanie_Optymalnej_Trasy
         private void LoadHomeAddressListview()
         {
             string[] row = {
-                    data.HomeAddress.Coordinates.Latitude.ToString(),
-                    data.HomeAddress.Coordinates.Longitude.ToString(),
-                    data.HomeAddress.Street,
-                    AddressIntToString(data.HomeAddress.BuildingNumber),
-                    AddressIntToString(data.HomeAddress.HouseNumber),
-                    data.HomeAddress.ZipCode,
-                    data.HomeAddress.City
+                    data.HomeAddress.addressCoordinates.latitude.ToString(),
+                    data.HomeAddress.addressCoordinates.longitude.ToString(),
+                    data.HomeAddress.street,
+                    AddressIntToString(data.HomeAddress.buildingNumber),
+                    AddressIntToString(data.HomeAddress.houseNumber),
+                    data.HomeAddress.zipCode,
+                    data.HomeAddress.city
                 };
             var listviewItem = new ListViewItem(row);
             this.HomeAddressListView.Items.Add(listviewItem);
@@ -49,14 +49,14 @@ namespace Wyznaczanie_Optymalnej_Trasy
             foreach (Address customer in data.CustomersList)
             {
                 string[] row = {
-                    customer.Name,
-                    customer.Coordinates.Latitude.ToString(),
-                    customer.Coordinates.Longitude.ToString(),
-                    customer.Street,
-                    AddressIntToString(customer.BuildingNumber),
-                    AddressIntToString(customer.HouseNumber),
-                    customer.ZipCode,
-                    customer.City
+                    customer.name,
+                    customer.addressCoordinates.latitude.ToString(),
+                    customer.addressCoordinates.longitude.ToString(),
+                    customer.street,
+                    AddressIntToString(customer.buildingNumber),
+                    AddressIntToString(customer.houseNumber),
+                    customer.zipCode,
+                    customer.city
                 };
                 string[] rowCopy = new string[row.Length];
                 row.CopyTo(rowCopy, 0);
@@ -88,7 +88,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
             List<Address> allNames = new List<Address>() { data.HomeAddress };
-            allNames.AddRange(data.CustomersList.Where(x => selectedNames.Contains(x.Name)));
+            allNames.AddRange(data.CustomersList.Where(x => selectedNames.Contains(x.name)));
             // TODO: parametrize
             var result = SA.Start_SA(
                 100000000,
