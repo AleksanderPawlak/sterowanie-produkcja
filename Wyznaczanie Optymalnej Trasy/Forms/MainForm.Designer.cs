@@ -68,6 +68,13 @@
             this.CarsNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.CarNumberTextBox = new System.Windows.Forms.TextBox();
             this.carsListPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.AddCarButton = new System.Windows.Forms.Button();
+            this.carsListView = new System.Windows.Forms.ListView();
+            this.modelHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.brandHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.carCostHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.kmCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -75,6 +82,8 @@
             this.ComputeTableLayoutPanel.SuspendLayout();
             this.CarNumberLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarsNumberNumericUpDown)).BeginInit();
+            this.carsListPage.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -439,6 +448,7 @@
             // 
             // carsListPage
             // 
+            this.carsListPage.Controls.Add(this.tableLayoutPanel2);
             this.carsListPage.Location = new System.Drawing.Point(4, 40);
             this.carsListPage.Name = "carsListPage";
             this.carsListPage.Padding = new System.Windows.Forms.Padding(3);
@@ -446,6 +456,64 @@
             this.carsListPage.TabIndex = 2;
             this.carsListPage.Text = "Lista samochodów";
             this.carsListPage.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.AddCarButton, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.carsListView, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.98964F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.01037F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1654, 1362);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // AddCarButton
+            // 
+            this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AddCarButton.Location = new System.Drawing.Point(3, 1228);
+            this.AddCarButton.Name = "AddCarButton";
+            this.AddCarButton.Size = new System.Drawing.Size(1648, 131);
+            this.AddCarButton.TabIndex = 0;
+            this.AddCarButton.Text = "Dodaj samochód";
+            this.AddCarButton.UseVisualStyleBackColor = true;
+            this.AddCarButton.Click += new System.EventHandler(this.AddCarButton_Click);
+            // 
+            // carsListView
+            // 
+            this.carsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.modelHeader,
+            this.brandHeader,
+            this.carCostHeader,
+            this.kmCost});
+            this.carsListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.carsListView.HideSelection = false;
+            this.carsListView.Location = new System.Drawing.Point(3, 3);
+            this.carsListView.Name = "carsListView";
+            this.carsListView.Size = new System.Drawing.Size(1648, 1219);
+            this.carsListView.TabIndex = 1;
+            this.carsListView.UseCompatibleStateImageBehavior = false;
+            this.carsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // modelHeader
+            // 
+            this.modelHeader.Text = "model";
+            // 
+            // brandHeader
+            // 
+            this.brandHeader.Text = "marka";
+            // 
+            // carCostHeader
+            // 
+            this.carCostHeader.Text = "cena samochodu";
+            // 
+            // kmCost
+            // 
+            this.kmCost.Text = "koszt na kilometr";
             // 
             // MainForm
             // 
@@ -465,6 +533,8 @@
             this.CarNumberLayoutPanel.ResumeLayout(false);
             this.CarNumberLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CarsNumberNumericUpDown)).EndInit();
+            this.carsListPage.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -511,6 +581,13 @@
         private System.Windows.Forms.NumericUpDown CarsNumberNumericUpDown;
         private System.Windows.Forms.TextBox CarNumberTextBox;
         private System.Windows.Forms.TabPage carsListPage;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button AddCarButton;
+        private System.Windows.Forms.ListView carsListView;
+        private System.Windows.Forms.ColumnHeader modelHeader;
+        private System.Windows.Forms.ColumnHeader brandHeader;
+        private System.Windows.Forms.ColumnHeader carCostHeader;
+        private System.Windows.Forms.ColumnHeader kmCost;
     }
 }
 

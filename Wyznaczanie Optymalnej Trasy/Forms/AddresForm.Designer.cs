@@ -209,7 +209,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(515, 75);
             this.AddButton.TabIndex = 18;
-            this.AddButton.Text = "Zatwierdź";
+            this.AddButton.Text = "Zapisz";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
@@ -219,7 +219,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1293, 946);
+            this.ClientSize = new System.Drawing.Size(1317, 953);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.CountryBox);

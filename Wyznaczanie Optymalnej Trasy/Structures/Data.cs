@@ -50,6 +50,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
             Serialize<List<Car>>(CAR_LIST_FILENAME, carsList);
         }
 
+        public void AddCar(Car car)
+        {
+            carsList.Add(car);
+        }
+
         public Address HomeAddress()
         {
             return homeAddress;

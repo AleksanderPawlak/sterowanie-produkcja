@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Wyznaczanie_Optymalnej_Trasy;
 using static System.Windows.Forms.ListView;
 using Simulated_annealing;
+using Wyznaczanie_Optymalnej_Trasy.Forms;
+using Wyznaczanie_Optymalnej_Trasy.Structures;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -24,6 +26,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             data = new Data();
             LoadHomeAddressListview();
             Load_CustomerListview();
+            LoadCarsListview();
         }
 
         private void LoadHomeAddressListview()
@@ -116,6 +119,36 @@ namespace Wyznaczanie_Optymalnej_Trasy
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadCarsListview()
+        {
+            List<Car> carsList = data.AllCarsList();
+            this.carsListView.Items.Clear();
+            this.carsListView.Items.Clear();
+
+            foreach (Car car in carsList)
+            {
+                string[] row = {
+                    car.model,
+                    car.brand,
+                    car.kmCost.ToString(),
+                    car.carCost.ToString()
+                };
+                var listviewItem = new ListViewItem(row);
+                this.carsListView.Items.Add(listviewItem);
+            }
+        }
+
+
+        private void AddCarButton_Click(object sender, EventArgs e)
+        {
+            var form = new CarForm(ref data);
+            form.FormClosed += delegate {
+                ActiveAddForm = false;
+                LoadCarsListview();
+            };
+            form.Show();
         }
     }
 }

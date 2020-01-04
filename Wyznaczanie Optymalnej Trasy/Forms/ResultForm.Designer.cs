@@ -219,7 +219,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.ResultListView.HideSelection = false;
             this.ResultListView.Location = new System.Drawing.Point(3, 3);
             this.ResultListView.Name = "ResultListView";
-            this.ResultListView.Size = new System.Drawing.Size(1616, 760);
+            this.ResultListView.Size = new System.Drawing.Size(1425, 854);
             this.ResultListView.TabIndex = 0;
             this.ResultListView.UseCompatibleStateImageBehavior = false;
             this.ResultListView.View = System.Windows.Forms.View.Details;
@@ -232,7 +232,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.ResultTabControl.Location = new System.Drawing.Point(0, 0);
             this.ResultTabControl.Name = "ResultTabControl";
             this.ResultTabControl.SelectedIndex = 0;
-            this.ResultTabControl.Size = new System.Drawing.Size(1630, 810);
+            this.ResultTabControl.Size = new System.Drawing.Size(1439, 904);
             this.ResultTabControl.TabIndex = 1;
             // 
             // OrderTab
@@ -241,7 +241,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.OrderTab.Location = new System.Drawing.Point(4, 40);
             this.OrderTab.Name = "OrderTab";
             this.OrderTab.Padding = new System.Windows.Forms.Padding(3);
-            this.OrderTab.Size = new System.Drawing.Size(1622, 766);
+            this.OrderTab.Size = new System.Drawing.Size(1431, 860);
             this.OrderTab.TabIndex = 0;
             this.OrderTab.Text = "Kolejność";
             this.OrderTab.UseVisualStyleBackColor = true;
@@ -307,7 +307,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.MapButtonsTableLayout.Location = new System.Drawing.Point(1442, 3);
             this.MapButtonsTableLayout.Name = "MapButtonsTableLayout";
             this.MapButtonsTableLayout.RowCount = 1;
-            this.MapButtonsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.MapButtonsTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 754F));
             this.MapButtonsTableLayout.Size = new System.Drawing.Size(171, 754);
             this.MapButtonsTableLayout.TabIndex = 1;
             // 
@@ -315,7 +315,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1630, 810);
+            this.ClientSize = new System.Drawing.Size(1439, 904);
             this.Controls.Add(this.ResultTabControl);
             this.Name = "ResultForm";
             this.Text = "Wynik";
