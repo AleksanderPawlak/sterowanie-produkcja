@@ -63,6 +63,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.name = name;
             addressCoordinates = new Coordinates(latitude, longitude);
         }
+
         public Address(
             string name, decimal latitude, decimal longitude, string street, int buildingNumber,
             int houseNumber, string zipcode, string city, string country

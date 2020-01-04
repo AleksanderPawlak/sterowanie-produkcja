@@ -13,12 +13,12 @@ using Simulated_annealing;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private Data data;
         // TODO: handle situations when add form was opened but adding was not completed
         private bool ActiveAddForm { get; set; } = false;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             data = new Data();
@@ -28,14 +28,16 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void LoadHomeAddressListview()
         {
+            Address homeAddress = data.HomeAddress();
+
             string[] row = {
-                    data.HomeAddress.addressCoordinates.latitude.ToString(),
-                    data.HomeAddress.addressCoordinates.longitude.ToString(),
-                    data.HomeAddress.street,
-                    AddressIntToString(data.HomeAddress.buildingNumber),
-                    AddressIntToString(data.HomeAddress.houseNumber),
-                    data.HomeAddress.zipCode,
-                    data.HomeAddress.city
+                    homeAddress.addressCoordinates.latitude.ToString(),
+                    homeAddress.addressCoordinates.longitude.ToString(),
+                    homeAddress.street,
+                    AddressIntToString(homeAddress.buildingNumber),
+                    AddressIntToString(homeAddress.houseNumber),
+                    homeAddress.zipCode,
+                    homeAddress.city
                 };
             var listviewItem = new ListViewItem(row);
             this.HomeAddressListView.Items.Add(listviewItem);
@@ -43,10 +45,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void Load_CustomerListview()
         {
+            List<Address> customersList = data.AllCustomers();
             this.CustomerListview.Items.Clear();
             this.CustomersListCheck.Items.Clear();
 
-            foreach (Address customer in data.CustomersList)
+            foreach (Address customer in customersList)
             {
                 string[] row = {
                     customer.name,
@@ -85,10 +88,13 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private void ComputeButton_Click(object sender, EventArgs e)
         {
+            Address homeAddress = data.HomeAddress();
+            List<Address> customersList = data.AllCustomers();
+
             List<ListViewItem> selected = CustomersListCheck.CheckedItems.OfType<ListViewItem>().ToList();
             List<string> selectedNames = new List<string>(from choice in selected select choice.Text);
-            List<Address> allNames = new List<Address>() { data.HomeAddress };
-            allNames.AddRange(data.CustomersList.Where(x => selectedNames.Contains(x.name)));
+            List<Address> allNames = new List<Address>() { homeAddress };
+            allNames.AddRange(customersList.Where(x => selectedNames.Contains(x.name)));
             // TODO: parametrize
             var result = SA.Start_SA(
                 100000000,
@@ -105,6 +111,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         static string AddressIntToString(int value)
         {
             return value != 0 ? value.ToString() : "";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

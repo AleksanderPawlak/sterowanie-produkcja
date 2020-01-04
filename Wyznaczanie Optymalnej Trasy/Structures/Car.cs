@@ -6,11 +6,23 @@ using System.Threading.Tasks;
 
 namespace Wyznaczanie_Optymalnej_Trasy.Structures
 {
-    class Car
+    [Serializable]
+    public class Car
     {
-        string name;
+        public string model { get; set; }
+        public string brand { get; set; }
+        public float kmCost { get; set; }
+        public float carCost { get; set; }
 
         public Car()
         { }
+
+        public Car(string model, string brand, float kmCost, float carCost)
+        {
+            this.model = model;
+            this.brand = brand;
+            this.kmCost = kmCost;
+            this.carCost = carCost;
+        }
     }
 }

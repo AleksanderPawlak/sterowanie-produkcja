@@ -1,6 +1,6 @@
 ﻿namespace Wyznaczanie_Optymalnej_Trasy
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -67,6 +67,7 @@
             this.CarNumberLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.CarsNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.CarNumberTextBox = new System.Windows.Forms.TextBox();
+            this.carsListPage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -80,6 +81,7 @@
             // 
             this.tabControl1.Controls.Add(this.CustomersList);
             this.tabControl1.Controls.Add(this.Algorithm);
+            this.tabControl1.Controls.Add(this.carsListPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -435,14 +437,24 @@
             this.CarNumberTextBox.Text = "Liczba samochodow";
             this.CarNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Form1
+            // carsListPage
+            // 
+            this.carsListPage.Location = new System.Drawing.Point(4, 40);
+            this.carsListPage.Name = "carsListPage";
+            this.carsListPage.Padding = new System.Windows.Forms.Padding(3);
+            this.carsListPage.Size = new System.Drawing.Size(1660, 1368);
+            this.carsListPage.TabIndex = 2;
+            this.carsListPage.Text = "Lista samochodów";
+            this.carsListPage.UseVisualStyleBackColor = true;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1668, 1412);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Wyznaczanie optymalnej trasy";
             this.tabControl1.ResumeLayout(false);
             this.CustomersList.ResumeLayout(false);
@@ -498,6 +510,7 @@
         private System.Windows.Forms.TableLayoutPanel CarNumberLayoutPanel;
         private System.Windows.Forms.NumericUpDown CarsNumberNumericUpDown;
         private System.Windows.Forms.TextBox CarNumberTextBox;
+        private System.Windows.Forms.TabPage carsListPage;
     }
 }
 
