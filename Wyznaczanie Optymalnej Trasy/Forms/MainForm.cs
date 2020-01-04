@@ -150,5 +150,13 @@ namespace Wyznaczanie_Optymalnej_Trasy
             };
             form.Show();
         }
+
+        private void computeCarFleetAlgorithmButton_Click(object sender, EventArgs e)
+        {
+            int weeksNumber = Convert.ToInt32(this.weeksNumberNumericUpDown.Value.ToString());
+            int currentCarsNumber = Convert.ToInt32(this.currentCarsNumberNumericUpDown.Value.ToString());
+
+            // TODO: pass values with carsList to algorithm
+        }
     }
 }

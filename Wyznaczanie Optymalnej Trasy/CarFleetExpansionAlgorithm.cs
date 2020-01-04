@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
-    class CarFleetExpansionAlgorithm
-    {
-        
+    class CarFleetExpansionAlgorithm     {
+        // parameters: weeks number, current cars number, cars list + structure with zl/h etc
     }
 }

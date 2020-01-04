@@ -75,6 +75,15 @@
             this.brandHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.carCostHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.kmCost = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CarFleetExpansionAlgorithmTab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.computeCarFleetAlgorithmButton = new System.Windows.Forms.Button();
+            this.weeksNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.currentCarsNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -84,6 +93,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.CarsNumberNumericUpDown)).BeginInit();
             this.carsListPage.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.CarFleetExpansionAlgorithmTab.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weeksNumberNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentCarsNumberNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -91,6 +106,7 @@
             this.tabControl1.Controls.Add(this.CustomersList);
             this.tabControl1.Controls.Add(this.Algorithm);
             this.tabControl1.Controls.Add(this.carsListPage);
+            this.tabControl1.Controls.Add(this.CarFleetExpansionAlgorithmTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -502,18 +518,139 @@
             // modelHeader
             // 
             this.modelHeader.Text = "model";
+            this.modelHeader.Width = 179;
             // 
             // brandHeader
             // 
             this.brandHeader.Text = "marka";
+            this.brandHeader.Width = 219;
             // 
             // carCostHeader
             // 
             this.carCostHeader.Text = "cena samochodu";
+            this.carCostHeader.Width = 346;
             // 
             // kmCost
             // 
             this.kmCost.Text = "koszt na kilometr";
+            this.kmCost.Width = 424;
+            // 
+            // CarFleetExpansionAlgorithmTab
+            // 
+            this.CarFleetExpansionAlgorithmTab.Controls.Add(this.tableLayoutPanel3);
+            this.CarFleetExpansionAlgorithmTab.Location = new System.Drawing.Point(4, 40);
+            this.CarFleetExpansionAlgorithmTab.Name = "CarFleetExpansionAlgorithmTab";
+            this.CarFleetExpansionAlgorithmTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CarFleetExpansionAlgorithmTab.Size = new System.Drawing.Size(1660, 1368);
+            this.CarFleetExpansionAlgorithmTab.TabIndex = 3;
+            this.CarFleetExpansionAlgorithmTab.Text = "Algorytm decyzyjny";
+            this.CarFleetExpansionAlgorithmTab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.computeCarFleetAlgorithmButton, 0, 3);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 5;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.54795F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.9589F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.49315F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1654, 1362);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.currentCarsNumberNumericUpDown, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 261);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1648, 47);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.weeksNumberNumericUpDown, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 314);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1648, 47);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // computeCarFleetAlgorithmButton
+            // 
+            this.computeCarFleetAlgorithmButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.computeCarFleetAlgorithmButton.Location = new System.Drawing.Point(3, 367);
+            this.computeCarFleetAlgorithmButton.Name = "computeCarFleetAlgorithmButton";
+            this.computeCarFleetAlgorithmButton.Size = new System.Drawing.Size(1648, 131);
+            this.computeCarFleetAlgorithmButton.TabIndex = 2;
+            this.computeCarFleetAlgorithmButton.Text = "Oblicz";
+            this.computeCarFleetAlgorithmButton.UseVisualStyleBackColor = true;
+            this.computeCarFleetAlgorithmButton.Click += new System.EventHandler(this.computeCarFleetAlgorithmButton_Click);
+            // 
+            // weeksNumberNumericUpDown
+            // 
+            this.weeksNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.weeksNumberNumericUpDown.Location = new System.Drawing.Point(827, 3);
+            this.weeksNumberNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.weeksNumberNumericUpDown.Name = "weeksNumberNumericUpDown";
+            this.weeksNumberNumericUpDown.Size = new System.Drawing.Size(818, 38);
+            this.weeksNumberNumericUpDown.TabIndex = 0;
+            // 
+            // currentCarsNumberNumericUpDown
+            // 
+            this.currentCarsNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.currentCarsNumberNumericUpDown.Location = new System.Drawing.Point(827, 3);
+            this.currentCarsNumberNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.currentCarsNumberNumericUpDown.Name = "currentCarsNumberNumericUpDown";
+            this.currentCarsNumberNumericUpDown.Size = new System.Drawing.Size(818, 38);
+            this.currentCarsNumberNumericUpDown.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(818, 47);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Aktualna liczba samochodów";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(818, 47);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Liczba tygodni";
             // 
             // MainForm
             // 
@@ -535,6 +672,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.CarsNumberNumericUpDown)).EndInit();
             this.carsListPage.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.CarFleetExpansionAlgorithmTab.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.weeksNumberNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.currentCarsNumberNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -588,6 +733,15 @@
         private System.Windows.Forms.ColumnHeader brandHeader;
         private System.Windows.Forms.ColumnHeader carCostHeader;
         private System.Windows.Forms.ColumnHeader kmCost;
+        private System.Windows.Forms.TabPage CarFleetExpansionAlgorithmTab;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.NumericUpDown currentCarsNumberNumericUpDown;
+        private System.Windows.Forms.NumericUpDown weeksNumberNumericUpDown;
+        private System.Windows.Forms.Button computeCarFleetAlgorithmButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 
