@@ -155,8 +155,53 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             int weeksNumber = Convert.ToInt32(this.weeksNumberNumericUpDown.Value.ToString());
             int currentCarsNumber = Convert.ToInt32(this.currentCarsNumberNumericUpDown.Value.ToString());
+            float penalty, hourRate;
 
-            // TODO: pass values with carsList to algorithm
+            try
+            {
+                penalty = float.Parse(this.penaltyInput.Text.ToString());
+                hourRate = float.Parse(this.hourRateInput.Text.ToString());
+            }
+            catch (System.FormatException)
+            {
+                IncorrectValuesMessageBox("Upewnij się, że podałeś wartość liczbową.");
+                return;
+            }
+
+            CarFleetExpansionAlgorithm.Result decision = CarFleetExpansionAlgorithm.getDecision(
+                weeksNumber,
+                currentCarsNumber,
+                hourRate,
+                penalty,
+                data.AllCarsList(),
+                data.AllCustomers(),
+                data.AllAddresses()
+                );
+
+            string msg;
+
+            if (decision.carShouldBeBuyed)
+                msg = "Opłaca się kupić samochód: \n" + decision.carType.ToString() + 
+                    "\n Koszt zwróci się za " + decision.numberOfWeeks + " tygodni.";
+            else
+                msg = "Przy aktualnej liczbie zamówień i samochodów " +
+                    "nie opłaca się rozszerzać floty samochodowej";
+            
+            string caption = "Wynik obliczeń";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(msg, caption, buttons);
+        }
+
+        private void IncorrectValuesMessageBox(string msg)
+        {
+            string caption = "Niepoprawne dane wejściowe";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            MessageBox.Show(msg, caption, buttons);
+        }
+
+        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

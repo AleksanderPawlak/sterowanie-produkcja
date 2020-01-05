@@ -27,5 +27,10 @@ namespace Wyznaczanie_Optymalnej_Trasy.Structures
             this.carCost = carCost;
             this.capacity = capacity;
         }
+
+        public override string ToString()
+        {
+            return "model: " + model + ", marka: " + brand + ", pojemność: "  + capacity + ", cena: " + carCost + ", koszt na kilometr: " + kmCost;
+        }
     }
 }
