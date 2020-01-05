@@ -110,11 +110,11 @@
       <DependentUpon>AddresForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GmapMarkerWithLabel.cs" />
-    <Compile Include="Forms\ResultForm.cs">
+    <Compile Include="Forms\OptimalizationResultForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ResultForm.Designer.cs">
-      <DependentUpon>ResultForm.cs</DependentUpon>
+    <Compile Include="Forms\OptimalizationResultForm.Designer.cs">
+      <DependentUpon>OptimalizationResultForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SA.cs" />
     <Compile Include="Sequence.cs" />
@@ -139,8 +139,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\ResultForm.resx">
-      <DependentUpon>ResultForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\OptimalizationResultForm.resx">
+      <DependentUpon>OptimalizationResultForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

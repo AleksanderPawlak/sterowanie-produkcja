@@ -40,7 +40,7 @@ namespace Wyznaczanie_Optymalnej_Trasy.Forms
                 float kmCost = float.Parse(this.kmCostTextBox.Text);
                 string model = this.modelTextBox.Text;
                 string brand = this.brandTextBox.Text;
-                Car car = new Car(model, brand, kmCost, carCost);
+                Car car = new Car(model, brand, kmCost, carCost, 0);
 
                 data.AddCar(car);
                 this.Close();

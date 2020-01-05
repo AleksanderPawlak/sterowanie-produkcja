@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
-    partial class ResultForm
+    partial class OptimalizationResultForm
     {
         /// <summary>
         /// Required designer variable.
@@ -311,13 +311,13 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.MapButtonsTableLayout.Size = new System.Drawing.Size(171, 754);
             this.MapButtonsTableLayout.TabIndex = 1;
             // 
-            // ResultForm
+            // OptimalizationResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1439, 904);
             this.Controls.Add(this.ResultTabControl);
-            this.Name = "ResultForm";
+            this.Name = "OptimalizationResultForm";
             this.Text = "Wynik";
             this.ResultTabControl.ResumeLayout(false);
             this.OrderTab.ResumeLayout(false);

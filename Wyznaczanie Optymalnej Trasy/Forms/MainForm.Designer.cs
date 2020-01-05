@@ -84,6 +84,11 @@
             this.currentCarsNumberNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.employeeHourRateInput = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PenaltyInput = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.CustomersList.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -99,6 +104,8 @@
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weeksNumberNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentCarsNumberNumericUpDown)).BeginInit();
+            this.employeeHourRateInput.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -550,18 +557,22 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.computeCarFleetAlgorithmButton, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.computeCarFleetAlgorithmButton, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.employeeHourRateInput, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 5;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.54795F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.9589F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.49315F));
+            this.tableLayoutPanel3.RowCount = 7;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.70187F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.583662F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.71448F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1654, 1362);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -573,11 +584,11 @@
             this.tableLayoutPanel4.Controls.Add(this.currentCarsNumberNumericUpDown, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 261);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 242);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1648, 47);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1648, 46);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -588,19 +599,19 @@
             this.tableLayoutPanel5.Controls.Add(this.weeksNumberNumericUpDown, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 314);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 294);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1648, 47);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1648, 46);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // computeCarFleetAlgorithmButton
             // 
             this.computeCarFleetAlgorithmButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.computeCarFleetAlgorithmButton.Location = new System.Drawing.Point(3, 367);
+            this.computeCarFleetAlgorithmButton.Location = new System.Drawing.Point(3, 346);
             this.computeCarFleetAlgorithmButton.Name = "computeCarFleetAlgorithmButton";
-            this.computeCarFleetAlgorithmButton.Size = new System.Drawing.Size(1648, 131);
+            this.computeCarFleetAlgorithmButton.Size = new System.Drawing.Size(1648, 93);
             this.computeCarFleetAlgorithmButton.TabIndex = 2;
             this.computeCarFleetAlgorithmButton.Text = "Oblicz";
             this.computeCarFleetAlgorithmButton.UseVisualStyleBackColor = true;
@@ -638,7 +649,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(818, 47);
+            this.label1.Size = new System.Drawing.Size(818, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "Aktualna liczba samochodów";
             // 
@@ -648,9 +659,66 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(818, 47);
+            this.label2.Size = new System.Drawing.Size(818, 46);
             this.label2.TabIndex = 1;
             this.label2.Text = "Liczba tygodni";
+            // 
+            // employeeHourRateInput
+            // 
+            this.employeeHourRateInput.ColumnCount = 2;
+            this.employeeHourRateInput.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.employeeHourRateInput.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.employeeHourRateInput.Controls.Add(this.label3, 0, 0);
+            this.employeeHourRateInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.employeeHourRateInput.Location = new System.Drawing.Point(3, 190);
+            this.employeeHourRateInput.Name = "employeeHourRateInput";
+            this.employeeHourRateInput.RowCount = 1;
+            this.employeeHourRateInput.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.employeeHourRateInput.Size = new System.Drawing.Size(1648, 46);
+            this.employeeHourRateInput.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(818, 46);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Stawka godziowa pracownika";
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.PenaltyInput, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 138);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1648, 46);
+            this.tableLayoutPanel7.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(818, 46);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Kwota kary za dzień spóżnienia";
+            // 
+            // PenaltyInput
+            // 
+            this.PenaltyInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PenaltyInput.Location = new System.Drawing.Point(827, 3);
+            this.PenaltyInput.Name = "PenaltyInput";
+            this.PenaltyInput.Size = new System.Drawing.Size(818, 38);
+            this.PenaltyInput.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -680,6 +748,10 @@
             this.tableLayoutPanel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weeksNumberNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.currentCarsNumberNumericUpDown)).EndInit();
+            this.employeeHourRateInput.ResumeLayout(false);
+            this.employeeHourRateInput.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -742,6 +814,11 @@
         private System.Windows.Forms.Button computeCarFleetAlgorithmButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel employeeHourRateInput;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox PenaltyInput;
     }
 }
 

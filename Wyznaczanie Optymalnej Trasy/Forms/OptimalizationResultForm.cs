@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
-    public partial class ResultForm : Form
+    public partial class OptimalizationResultForm : Form
     {
         // TODO: simplify structure and change structures
         private Sequence Result;
         private List<Address> AddressesNames;
         List<List<string>> resultAddressesNames = new List<List<string>>();
 
-        public ResultForm(Sequence result, List<Address> addressesNames)
+        public OptimalizationResultForm(Sequence result, List<Address> addressesNames)
         {
             Result = result;
             AddressesNames = addressesNames;

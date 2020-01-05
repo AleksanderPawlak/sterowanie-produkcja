@@ -14,15 +14,18 @@ namespace Wyznaczanie_Optymalnej_Trasy.Structures
         public float kmCost { get; set; }
         public float carCost { get; set; }
 
+        public int capacity { get; set; }
+
         public Car()
         { }
 
-        public Car(string model, string brand, float kmCost, float carCost)
+        public Car(string model, string brand, float kmCost, float carCost, int capacity)
         {
             this.model = model;
             this.brand = brand;
             this.kmCost = kmCost;
             this.carCost = carCost;
+            this.capacity = capacity;
         }
     }
 }

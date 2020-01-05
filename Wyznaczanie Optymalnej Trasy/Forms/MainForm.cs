@@ -107,7 +107,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 new Distance(data.getSpecifiedDistances(selectedNames))
                 );
 
-            var form = new ResultForm(result, allNames);
+            var form = new OptimalizationResultForm(result, allNames);
             form.Show();
         }
 
