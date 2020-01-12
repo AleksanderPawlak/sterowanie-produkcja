@@ -87,7 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarFleetExpansionAlgorithm.cs" />
+    <Compile Include="Algorithms\CarFleetExpansionAlgorithm.cs" />
     <Compile Include="Forms\CarForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,7 +96,7 @@
     </Compile>
     <Compile Include="Structures\Car.cs" />
     <Compile Include="Structures\Data.cs" />
-    <Compile Include="Distance.cs" />
+    <Compile Include="Algorithms\utils\Distance.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +116,8 @@
     <Compile Include="Forms\OptimalizationResultForm.Designer.cs">
       <DependentUpon>OptimalizationResultForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SA.cs" />
-    <Compile Include="Sequence.cs" />
+    <Compile Include="Algorithms\SA.cs" />
+    <Compile Include="Algorithms\utils\Sequence.cs" />
     <Compile Include="Structures\Address.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
