@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\CarFleetExpansionAlgorithm.cs" />
+    <Compile Include="Algorithms\utils\RandomCoordinates.cs" />
     <Compile Include="Forms\CarForm.cs">
       <SubType>Form</SubType>
     </Compile>

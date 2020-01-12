@@ -7,7 +7,29 @@ using Google.Maps;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
- 
+
+    [Serializable]
+    public struct Coordinates
+    {
+        public decimal latitude;
+        public decimal longitude;
+
+        public Coordinates(decimal latitude, decimal longitude)
+        {
+            this.latitude = latitude;
+            this.longitude = longitude;
+        }
+
+        public override string ToString()
+        {
+            var d = latitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)
+                + "," +
+                longitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
+            return d;
+        }
+    }
+
+
     [Serializable]
      public class Address
     {
@@ -19,7 +41,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public string zipCode = default;
         public string city = default;
         public string country = "PL"; // TODO: check if google api accepts country and adjust
-        public Day[] deliveryDays = new Day[7];  // TODO: create setter with size limit
+        public List<Day> deliveryDays = new List<Day>();  // TODO: create setter with size limit
 
         [Serializable]
         public enum Day
@@ -31,27 +53,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
             Fri,
             Sat,
             Sun
-        }
-
-        [Serializable]
-        public struct Coordinates
-        {
-            public decimal latitude;
-            public decimal longitude;
-
-            public Coordinates(decimal latitude, decimal longitude)
-            {
-                this.latitude = latitude;
-                this.longitude = longitude;
-            }
-
-            public override string ToString()
-            {
-                var d = latitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)
-                    + "," +
-                    longitude.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture);
-                return d;
-            }
         }
 
         public Address()
@@ -81,7 +82,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         public Address(
             string name, decimal latitude, decimal longitude, string street, int buildingNumber,
-            int houseNumber, string zipcode, string city, string country, Day[] deliveryDays
+            int houseNumber, string zipcode, string city, string country, List<Day> deliveryDays
             )
         {
             this.name = name;
