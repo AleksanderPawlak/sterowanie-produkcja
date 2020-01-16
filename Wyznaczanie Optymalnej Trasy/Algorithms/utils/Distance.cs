@@ -13,7 +13,7 @@ namespace Simulated_annealing
         private double[,] point;
         public int City;
 
-        public Distance(double [,] array, string path = "", string data_type = "")
+        public Distance(double[,] array, string path = "", string data_type = "")
         {
             if (data_type == "distance")
             {
@@ -30,7 +30,7 @@ namespace Simulated_annealing
                     }
                 }
             }
-            else if(data_type == "point")
+            else if (data_type == "point")
             {
                 var lines = File.ReadAllLines(path);
                 distance = new double[lines.Count(), lines.Count()];
@@ -61,7 +61,27 @@ namespace Simulated_annealing
                 City = Convert.ToInt32(Math.Sqrt(distance.Length));
             }
         }
+        public Distance OutPoint(int outPoint)
+        {
+            double[,] tab = new double[City-1,City-1];
 
+            for (int i = 0, j = 0; i < distance.GetLength(0); i++)
+            {
+                if (i == outPoint)
+                    continue;
+
+                for (int k = 0, u = 0; k < distance.GetLength(1); k++)
+                {
+                    if (k == outPoint)
+                        continue;
+
+                    tab[j, u] = distance[i, k];
+                    u++;
+                }
+                j++;
+            }
+            return new Distance(tab,"","");
+        }
         public double Get(int i,int j)
         {
             return distance[i,j];

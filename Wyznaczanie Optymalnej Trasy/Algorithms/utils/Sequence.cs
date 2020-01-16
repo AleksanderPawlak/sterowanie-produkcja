@@ -10,7 +10,7 @@ namespace Simulated_annealing
     {
         public int[] Road;
         public int Car;
-        private int City;
+        public int City;
 
         public Sequence(int car, int city)
         {
@@ -87,6 +87,20 @@ namespace Simulated_annealing
                 } while (Road[j]!=0);
             }
             return L.Max();
+        }
+        public double[] All_distance(Distance arg)
+        {
+            double[] L = new double[Car];
+            int j = 0;
+            for (int i = 0; i < Car; i++)
+            {
+                do
+                {
+                    L[i] += arg.Get(Road[j], Road[j + 1]);
+                    j++;
+                } while (Road[j] != 0);
+            }
+            return L;
         }
     }
 }
