@@ -52,6 +52,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // NameBox
             // 
+            this.NameBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.NameBox.Location = new System.Drawing.Point(445, 92);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(515, 38);
@@ -77,6 +78,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // StreetBox
             // 
+            this.StreetBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.StreetBox.Location = new System.Drawing.Point(445, 162);
             this.StreetBox.Name = "StreetBox";
             this.StreetBox.Size = new System.Drawing.Size(515, 38);
@@ -93,6 +95,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // LatBox
             // 
+            this.LatBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LatBox.Location = new System.Drawing.Point(445, 232);
             this.LatBox.Name = "LatBox";
             this.LatBox.Size = new System.Drawing.Size(515, 38);
@@ -109,6 +112,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // LocalBox
             // 
+            this.LocalBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LocalBox.Location = new System.Drawing.Point(445, 463);
             this.LocalBox.Name = "LocalBox";
             this.LocalBox.Size = new System.Drawing.Size(515, 38);
@@ -125,6 +129,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // BuildingBox
             // 
+            this.BuildingBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BuildingBox.Location = new System.Drawing.Point(445, 385);
             this.BuildingBox.Name = "BuildingBox";
             this.BuildingBox.Size = new System.Drawing.Size(515, 38);
@@ -141,6 +146,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // LenBox
             // 
+            this.LenBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LenBox.Location = new System.Drawing.Point(445, 303);
             this.LenBox.Name = "LenBox";
             this.LenBox.Size = new System.Drawing.Size(515, 38);
@@ -157,6 +163,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // CountryBox
             // 
+            this.CountryBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CountryBox.Location = new System.Drawing.Point(445, 683);
             this.CountryBox.Name = "CountryBox";
             this.CountryBox.Size = new System.Drawing.Size(515, 38);
@@ -173,6 +180,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // CityBox
             // 
+            this.CityBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CityBox.Location = new System.Drawing.Point(445, 606);
             this.CityBox.Name = "CityBox";
             this.CityBox.Size = new System.Drawing.Size(515, 38);
@@ -189,6 +197,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             // 
             // ZipCodeBox
             // 
+            this.ZipCodeBox.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ZipCodeBox.Location = new System.Drawing.Point(445, 535);
             this.ZipCodeBox.Name = "ZipCodeBox";
             this.ZipCodeBox.Size = new System.Drawing.Size(515, 38);
@@ -200,7 +209,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(515, 75);
             this.AddButton.TabIndex = 18;
-            this.AddButton.Text = "Zatwierdź";
+            this.AddButton.Text = "Zapisz";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AcceptButton_Click);
             // 
@@ -209,7 +218,8 @@ namespace Wyznaczanie_Optymalnej_Trasy
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1293, 946);
+            this.BackColor = System.Drawing.SystemColors.Menu;
+            this.ClientSize = new System.Drawing.Size(1317, 953);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.CountryBox);

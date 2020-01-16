@@ -1,1 +1,1 @@
-{"Name":"Nasz Magazyn","Coordinates":{"Latitude":51.120503,"Longitude":17.040180},"Street":"Jednosci Narodowej","BuildingNumber":84,"HouseNumber":0,"ZipCode":"50-261","City":"Wroclaw","Country":"PL"}
+{"name":"Nasz Magazyn","addressCoordinates":{"latitude":0.0,"longitude":0.0},"street":"Jednosci Narodowej","buildingNumber":84,"houseNumber":0,"zipCode":"50-261","city":"Wroclaw","country":"PL","deliveryDays":[0,0,0,0,0,0,0]}
