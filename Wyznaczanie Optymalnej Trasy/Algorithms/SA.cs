@@ -53,7 +53,7 @@ namespace Simulated_annealing
                 T = lambda * T;
             }
             oldResult.optimal_road = tgw;
-            if (Time_Max > tgw.Road_distance(dist))
+            if (Time_Max < tgw.Road_distance(dist))
             {
                 
                 double[] dist_array = tgw.All_distance(dist);

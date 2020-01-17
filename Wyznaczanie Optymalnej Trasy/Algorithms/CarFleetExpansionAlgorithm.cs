@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Wyznaczanie_Optymalnej_Trasy.Algorithms.utils;
 using Wyznaczanie_Optymalnej_Trasy.Structures;
 using static Wyznaczanie_Optymalnej_Trasy.Address;
+using Simulated_annealing;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -45,6 +46,13 @@ namespace Wyznaczanie_Optymalnej_Trasy
             return System.Convert.ToBoolean(rnd.Next(0, 2));
         }
 
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[rnd.Next(s.Length)]).ToArray());
+        }
+
         public static Address getRandomCustomer()
         {
             Address result = null;
@@ -63,6 +71,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 }
 
                 result = new Address();
+                result.name = RandomString(15);
                 result.addressCoordinates = coordinates;
                 result.deliveryDays = days;
             }
@@ -75,11 +84,44 @@ namespace Wyznaczanie_Optymalnej_Trasy
             int currentCarsNumber,
             float empleyeesHourlyRate,
             float dailyPenalty,
-            List<Car> carsList,
-            List<Address> customersAddresses,
-            List<Address> allAddresses
+            Data data
             )
         {
+            List<string> customers = new List<string>();
+
+            for (int i = 0; i < weeksNumber; i++)
+            {
+                Address randomCustomer = getRandomCustomer();
+                if (randomCustomer != null)
+                {
+                    data.AddCustomer(randomCustomer);
+                    data.UpdateDistanceMatrix();
+
+                }
+
+                for (int j = 0; j < 7; j++)
+                {
+                    Day day = (Day)i;
+                    customers.AddRange(data.getCustomersNamesForSpecifiedDay(day));
+                    double[,] distances = data.getSpecifiedDurations(customers);
+                    if (customers != null)
+                    {
+                        SA_Result result = SA.Start_SA(1000000, 0.0001, 0.99995, data.CurrentCars(), new Distance(distances, "", ""), new SA_Result());
+                        customers = result.ReturnCityString;
+                        List<SA_Result> resultNewCar = new List<SA_Result>();
+                        if (customers != null)
+                        {
+                            for (int k = 0; k < data.AllCarsList().Count; k++)
+                            {
+                                List<Car> Cars = data.CurrentCars();
+                                Cars.Add(data.AllCarsList()[k]);
+                                List<SA_Result> newCarResult = new List<SA_Result>();
+                                newCarResult.Add(SA.Start_SA(10000, 0.001, 0.99, Cars, new Distance(distances, "", ""), new SA_Result()));
+                            }
+                        }
+                    }
+                }
+            }
             return new Result();
         }
     }

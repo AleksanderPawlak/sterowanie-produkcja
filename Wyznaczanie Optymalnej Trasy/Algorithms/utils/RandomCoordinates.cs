@@ -10,24 +10,21 @@ namespace Wyznaczanie_Optymalnej_Trasy.Algorithms.utils
     {
         // TODO: change solution
         private static Coordinates[] PolandPolygon = new Coordinates[] {
-            new Coordinates(new Decimal(49.605623), new Decimal(19.916473)),
-            new Coordinates(new Decimal(50.379392), new Decimal(17.960936)),
-            new Coordinates(new Decimal(51.102191), new Decimal(15.197432)),
-            new Coordinates(new Decimal(53.883667), new Decimal(14.395431)),
-            new Coordinates(new Decimal(54.767876), new Decimal(18.182588)),
-            new Coordinates(new Decimal(54.233981), new Decimal(18.672167)),
-            new Coordinates(new Decimal(54.283231), new Decimal(22.909834)),
-            new Coordinates(new Decimal(52.940740), new Decimal(23.766768)),
-            new Coordinates(new Decimal(52.255619), new Decimal(23.039700)),
-            new Coordinates(new Decimal(52.061320), new Decimal(23.415205)),
-            new Coordinates(new Decimal(50.783761), new Decimal(23.728315)),
-            new Coordinates(new Decimal(49.445322), new Decimal(22.272627)),
-            new Coordinates(new Decimal(49.559477), new Decimal(21.547529)),
+            new Coordinates(new Decimal(53.406322), new Decimal(14.558969)),
+            new Coordinates(new Decimal(52.875082), new Decimal(14.381287)),
+            new Coordinates(new Decimal(52.580432), new Decimal(14.825624)),
+            new Coordinates(new Decimal(51.100049), new Decimal(15.160069)),
+            new Coordinates(new Decimal(50.665466), new Decimal(16.451800)),
+            new Coordinates(new Decimal(50.370268), new Decimal(17.800895)),
+            new Coordinates(new Decimal(49.691728), new Decimal(19.240045)),
+            new Coordinates(new Decimal(50.065639), new Decimal(19.910652)),
+            new Coordinates(new Decimal(52.227967), new Decimal(21.038892)),
+            new Coordinates(new Decimal(53.122915), new Decimal(18.008129))
         };
-        private static double PolandMinLatitude = 14.395431;
-        private static double PolandMaxLatitude = 23.728315;
-        private static double PolandMinLongitude = 49.605623;
-        private static double PolandMaxLongitude = 54.767876;
+        private static double PolandMinLatitude = 14.381287;
+        private static double PolandMaxLatitude = 21.038892;
+        private static double PolandMinLongitude = 49.691728;
+        private static double PolandMaxLongitude = 53.406322;
         private static Random rng = new Random();
 
 

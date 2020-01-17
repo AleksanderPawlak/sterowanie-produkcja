@@ -175,9 +175,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 currentCarsNumber,
                 hourRate,
                 penalty,
-                data.AllCarsList(),
-                data.AllCustomers(),
-                data.AllAddresses()
+                data
                 );
 
             string msg;
