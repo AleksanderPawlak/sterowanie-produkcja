@@ -81,7 +81,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         public static Result getDecision(
             int weeksNumber,
-            int currentCarsNumber,
             float empleyeesHourlyRate,
             float dailyPenalty,
             Data data

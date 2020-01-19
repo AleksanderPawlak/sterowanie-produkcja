@@ -156,7 +156,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
         private void computeCarFleetAlgorithmButton_Click(object sender, EventArgs e)
         {
             int weeksNumber = Convert.ToInt32(this.weeksNumberNumericUpDown.Value.ToString());
-            int currentCarsNumber = Convert.ToInt32(this.currentCarsNumberNumericUpDown.Value.ToString());
             float penalty, hourRate;
 
             try
@@ -172,7 +171,6 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
             CarFleetExpansionAlgorithm.Result decision = CarFleetExpansionAlgorithm.getDecision(
                 weeksNumber,
-                currentCarsNumber,
                 hourRate,
                 penalty,
                 data
