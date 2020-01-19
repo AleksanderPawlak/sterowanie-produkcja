@@ -16,7 +16,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     static class Globals
     {
         public const bool AllowGoogleApiOperations = true;
-        public const string API_KEY = "";
+        public const string API_KEY = "";//AIzaSyC7g3uyOiFOAKoOAWD2zFOvuF3pfayY0Vs
     }
 
     public class Data
@@ -27,11 +27,13 @@ namespace Wyznaczanie_Optymalnej_Trasy
         static string CUSTOMERS_FILENAME = "Customers.json";
         static string DIMENSIONS_MATRIX_FILENAME = "DistancenMatrix.json";
         static string CAR_LIST_FILENAME = "CarsList.json";
+        static string CURRENT_CARS_LIST_FILENAME = "CurrentCars.json";
 
         private Address homeAddress;
         private List<Address> customersList;
         private DistanceMatrixResponse.DistanceMatrixRows[] distanceMatrix;  // size -> 1 + CustomersList.Count
         private List<Car> carsList;
+        private List<Car> currentCars;
 
         public Data()
         {
@@ -40,6 +42,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             customersList = Deserialize<List<Address>>(CUSTOMERS_FILENAME);
             distanceMatrix = DeserializeDistanceMatrix(DIMENSIONS_MATRIX_FILENAME);
             carsList = Deserialize<List<Car>>(CAR_LIST_FILENAME);
+            currentCars = Deserialize<List<Car>>(CURRENT_CARS_LIST_FILENAME);
         }
 
         ~Data()
@@ -48,6 +51,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             Serialize<Address>(HOME_ADDRESS_FILENAME, homeAddress);
             Serialize<DistanceMatrixResponse.DistanceMatrixRows[]>(DIMENSIONS_MATRIX_FILENAME, distanceMatrix);
             Serialize<List<Car>>(CAR_LIST_FILENAME, carsList);
+            Serialize<List<Car>>(CURRENT_CARS_LIST_FILENAME, currentCars);
         }
 
         public void AddCar(Car car)
@@ -63,6 +67,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public List<Car> AllCarsList()
         {
             return carsList;
+        }
+
+        public List<Car> CurrentCars()
+        {
+            return currentCars;
         }
 
         public List<Address> AllCustomers()
@@ -94,12 +103,16 @@ namespace Wyznaczanie_Optymalnej_Trasy
             distanceMatrix = response.Rows;
         }
 
-        public double[,] getDistancesForSpecifiedDay(Address.Day day)
-        { 
-            List<string> customers = (from user in customersList
+        public List<string> getCustomersNamesForSpecifiedDay(Address.Day day)
+        {
+            return (from user in customersList
                                       where user.isSubscribedForDay(day)
                                       select user.name).ToList();
-            return getSpecifiedDistances(customers);
+        }
+
+        public double[,] getDistancesForSpecifiedDay(Address.Day day)
+        {
+            return getSpecifiedDistances(getCustomersNamesForSpecifiedDay(day));
         }
 
         public double[,] getDurationsForSpecifiedDay(Address.Day day)
@@ -158,6 +171,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
             }
 
             return durations;
+        }
+
+        public void AddCustomer(Address address)
+        {
+            customersList.Add(address);
         }
 
         public void AddCustomer(

@@ -12,6 +12,7 @@ using static System.Windows.Forms.ListView;
 using Simulated_annealing;
 using Wyznaczanie_Optymalnej_Trasy.Forms;
 using Wyznaczanie_Optymalnej_Trasy.Structures;
+using Wyznaczanie_Optymalnej_Trasy.Algorithms.utils;
 
 namespace Wyznaczanie_Optymalnej_Trasy
 {
@@ -103,11 +104,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 100000000,
                 0.00001,
                 0.9999,
-                Convert.ToInt32(this.CarsNumberNumericUpDown.Value.ToString()),
-                new Distance(data.getSpecifiedDistances(selectedNames))
+                data.AllCarsList(),
+                new Distance(data.getSpecifiedDistances(selectedNames)),
+                new SA_Result()                
                 );
 
-            var form = new OptimalizationResultForm(result, allNames);
+            var form = new OptimalizationResultForm(result.optimal_road, allNames);
             form.Show();
         }
 
@@ -173,9 +175,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 currentCarsNumber,
                 hourRate,
                 penalty,
-                data.AllCarsList(),
-                data.AllCustomers(),
-                data.AllAddresses()
+                data
                 );
 
             string msg;
