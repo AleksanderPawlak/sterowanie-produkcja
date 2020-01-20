@@ -14,9 +14,10 @@ namespace Wyznaczanie_Optymalnej_Trasy.Algorithms.utils
         public List<string> ReturnCityString = new List<string>();
         public double workTime;
         public double fuel;
+        public int iterSA;
         public SA_Result() 
-        { 
-        
+        {
+            iterSA = 0;
         }
     }
 }

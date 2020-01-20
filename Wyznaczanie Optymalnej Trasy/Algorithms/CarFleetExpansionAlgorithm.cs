@@ -112,6 +112,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             {
                 DataCopy data = new DataCopy(dataMainCopy);
                 int dayLate = 0;
+                SA_Result result = new SA_Result();
                 List<Car> Cars = data.CurrentCars(); // create car list k=0 -> current cars, k>0 ->current cars + new car
                 if (k > 0) 
                 {
@@ -132,15 +133,15 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
                         if (customers != null)
                         {
-                            SA_Result result = SA.Start_SA(
+                            result = SA.Start_SA(
                                 1000,
-                                0.0001, 
-                                0.9, 
+                                0.0001,
+                                0.9,
                                 data,
-                                customers, 
-                                new Distance(durations, "", ""), 
+                                customers,
+                                new Distance(durations, "", ""),
                                 new Distance(distances, "", ""),
-                                new SA_Result()
+                                result
                                 );
 
                             customers = result.ReturnCityString;

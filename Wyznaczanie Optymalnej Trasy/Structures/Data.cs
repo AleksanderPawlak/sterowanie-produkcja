@@ -278,11 +278,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             if (distanceString.Contains("km"))
             {
-                return Convert.ToDouble(distanceString.Replace(" km", "").Replace(".", ","));
+                return Convert.ToDouble(distanceString.Replace(" km", ""));//.Replace(".", ","))
             }
             else if (distanceString.Contains("m"))
             {
-                return Convert.ToDouble(distanceString.Replace("m", "").Replace(".", ",")) / 1000.0;
+                return Convert.ToDouble(distanceString.Replace("m", "")) / 1000.0;//.Replace(".", ",")
             }
             else 
             {
