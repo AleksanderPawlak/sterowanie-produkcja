@@ -167,8 +167,24 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     }
                 }
             }
-            int maxIndex = costFunction.Cast<double>().ToList().IndexOf(costFunction.Cast<double>().Min());
-            return new Result();
+            int simNumber = dataMainCopy.AllCarsList().Count + 1;
+            double[] endCF = new double[simNumber];
+            for (int i = 0; i < simNumber; i++)
+            {
+                endCF[i] = costFunction[weeksNumber-1, i];
+            }
+
+            if (endCF[0] == endCF.Min())
+                return new Result();
+            else
+            {
+                int minCF = endCF.ToList().IndexOf(endCF.Min()) - 1;
+                
+                return new Result(true, dataMainCopy.AllCarsList()[minCF],1);
+            }
+
+            
+            
         }
     }
 }
