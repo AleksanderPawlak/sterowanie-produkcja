@@ -173,7 +173,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 weeksNumber,
                 hourRate,
                 penalty,
-                data
+                new DataCopy(data)
                 );
 
             string msg;

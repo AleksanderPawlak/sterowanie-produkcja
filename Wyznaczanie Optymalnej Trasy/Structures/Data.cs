@@ -16,7 +16,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     static class Globals
     {
         public const bool AllowGoogleApiOperations = true;
-        public const string API_KEY = "";//AIzaSyC7g3uyOiFOAKoOAWD2zFOvuF3pfayY0Vs
+        public const string API_KEY = "AIzaSyBKQYIwjZ3lTYZgyRYTyIF1TS8NVAA3d4g";
     }
 
     public class Data
@@ -29,11 +29,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         static string CAR_LIST_FILENAME = "CarsList.json";
         static string CURRENT_CARS_LIST_FILENAME = "CurrentCars.json";
 
-        private Address homeAddress;
-        private List<Address> customersList;
-        private DistanceMatrixResponse.DistanceMatrixRows[] distanceMatrix;  // size -> 1 + CustomersList.Count
-        private List<Car> carsList;
-        private List<Car> currentCars;
+        protected Address homeAddress;
+        protected List<Address> customersList;
+        protected DistanceMatrixResponse.DistanceMatrixRows[] distanceMatrix;  // size -> 1 + CustomersList.Count
+        protected List<Car> carsList;
+        protected List<Car> currentCars;
 
         public Data()
         {
@@ -85,6 +85,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
             addresses.AddRange(from customer in customersList select customer);
 
             return addresses;
+        }
+
+        public DistanceMatrixResponse.DistanceMatrixRows[] GetDistanceMatrix()
+        {
+            return distanceMatrix;
         }
 
         public void UpdateDistanceMatrix()
@@ -281,6 +286,26 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 return 0.0;
             }
         }
+
+    }
+
+    public class DataCopy : Data 
+    {
+        public DataCopy(Data other)
+        {
+            GoogleSigned.AssignAllServices(new GoogleSigned(Globals.API_KEY));
+            homeAddress = other.HomeAddress();
+            customersList = other.AllCustomers().ToList();
+            distanceMatrix = other.GetDistanceMatrix().ToArray();
+            carsList = other.AllCarsList().ToList();
+            currentCars = other.CurrentCars().ToList();
+        }
+
+        public DataCopy()
+        { }
+
+        ~DataCopy()
+        {}
 
     }
 }
