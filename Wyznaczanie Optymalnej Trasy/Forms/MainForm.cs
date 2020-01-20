@@ -30,6 +30,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
             LoadCarsListview();
         }
 
+        protected override void OnClosed(EventArgs e)
+        {
+            data.SaveData();
+            base.OnClosed(e);
+        }
+
         private void LoadHomeAddressListview()
         {
             Address homeAddress = data.HomeAddress();

@@ -55,41 +55,62 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         public static Address getRandomCustomer()
         {
-            Address result = null;
-
-            if (getRandomDecisionAboutNewCustomer())
-            {
-                Coordinates coordinates = RandomCoordinates.GetRandomCoordinatesInPoland();
-                List <Day> days = new List<Day>();
+            Address result = new Address();
                 
-                for (int i = 0; i < 7; i++) // TODO: change to generic solution
+            Coordinates coordinates = RandomCoordinates.GetRandomCoordinatesInPoland();
+            List <Day> days = new List<Day>();
+                
+            for (int i = 0; i < 7; i++) // TODO: change to generic solution
+            {
+                if (System.Convert.ToBoolean(rnd.Next(0, 2)))
                 {
-                    if (System.Convert.ToBoolean(rnd.Next(0, 2)))
-                    {
-                        days.Add((Day)i);
-                    }
+                    days.Add((Day)i);
                 }
-
-                result = new Address();
-                result.name = RandomString(15);
-                result.addressCoordinates = coordinates;
-                result.deliveryDays = days;
             }
 
+            result.name = RandomString(15);
+            result.addressCoordinates = coordinates;
+            result.deliveryDays = days;
+
             return result;
+        }
+
+        private static void addRandomCustomer(Data data) // TODO: refactor (bardzo zle rozwiazanie)
+        {
+            if (!getRandomDecisionAboutNewCustomer())
+                return;
+
+            bool error = false;
+
+            do
+            {
+                try
+                {
+                    Address randomCustomer = getRandomCustomer();
+                    data.AddCustomer(randomCustomer);
+                    data.UpdateDistanceMatrix();
+
+                }
+                catch (Exception)
+                {
+                    error = true;
+                }
+            }
+            while (error);
         }
 
         public static Result getDecision(
             int weeksNumber,
             float empleyeesHourlyRate,
             float dailyPenalty,
-            Data data
+            Data dataMainCopy
             )
         {
             List<string> customers = new List<string>();
-            double[,] costFunction = new double[weeksNumber,data.AllCarsList().Count+1];
-            for (int k = 0; k < data.AllCarsList().Count+1; k++)
+            double[,] costFunction = new double[weeksNumber, dataMainCopy.AllCarsList().Count+1];
+            for (int k = 0; k < dataMainCopy.AllCarsList().Count+1; k++)
             {
+                DataCopy data = new DataCopy(dataMainCopy);
                 int dayLate = 0;
                 List<Car> Cars = data.CurrentCars(); // create car list k=0 -> current cars, k>0 ->current cars + new car
                 if (k > 0) 
@@ -99,12 +120,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
                 for (int i = 0; i < weeksNumber; i++)
                 {
-                    Address randomCustomer = getRandomCustomer();
-                    if (randomCustomer != null)
-                    {
-                        data.AddCustomer(randomCustomer);
-                        data.UpdateDistanceMatrix();
-                    }
+                    addRandomCustomer(data);
 
                     for (int j = 0; j < 7; j++)
                     {

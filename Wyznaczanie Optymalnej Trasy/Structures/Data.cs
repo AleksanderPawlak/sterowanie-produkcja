@@ -45,7 +45,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
             currentCars = Deserialize<List<Car>>(CURRENT_CARS_LIST_FILENAME);
         }
 
-        ~Data()
+        public virtual void SaveData()
         {
             Serialize<List<Address>>(CUSTOMERS_FILENAME, customersList);
             Serialize<Address>(HOME_ADDRESS_FILENAME, homeAddress);
@@ -105,6 +105,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 WaypointsDestination = destinations
             };
             var response = new DistanceMatrixService().GetResponse(request);
+            if (response.Status == 0)
+                throw new Exception("Invalid address");
+
             distanceMatrix = response.Rows;
         }
 
@@ -295,17 +298,16 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             GoogleSigned.AssignAllServices(new GoogleSigned(Globals.API_KEY));
             homeAddress = other.HomeAddress();
-            customersList = other.AllCustomers().ToList();
-            distanceMatrix = other.GetDistanceMatrix().ToArray();
-            carsList = other.AllCarsList().ToList();
-            currentCars = other.CurrentCars().ToList();
+            customersList = new List<Address>(other.AllCustomers().ToList());
+            distanceMatrix = (DistanceMatrixResponse.DistanceMatrixRows[])other.GetDistanceMatrix().Clone();
+            carsList = new List<Car>(other.AllCarsList().ToList());
+            currentCars = new List<Car>(other.CurrentCars());
         }
 
         public DataCopy()
         { }
 
-        ~DataCopy()
+        public override void SaveData()
         {}
-
     }
 }

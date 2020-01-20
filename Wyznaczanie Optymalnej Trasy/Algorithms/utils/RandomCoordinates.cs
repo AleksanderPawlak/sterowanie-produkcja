@@ -50,8 +50,8 @@ namespace Wyznaczanie_Optymalnej_Trasy.Algorithms.utils
 
         private static Coordinates GetRandomCoorinates()
         {
-            decimal longitude = (decimal)(PolandMinLongitude + (rng.NextDouble() * (PolandMaxLongitude - PolandMinLongitude)));
-            decimal latitude = (decimal)(PolandMinLatitude + (rng.NextDouble() * (PolandMaxLatitude - PolandMinLatitude)));
+            decimal longitude = Decimal.Round((decimal)(PolandMinLongitude + (rng.NextDouble() * (PolandMaxLongitude - PolandMinLongitude))), 6);
+            decimal latitude = Decimal.Round((decimal)(PolandMinLatitude + (rng.NextDouble() * (PolandMaxLatitude - PolandMinLatitude))), 6);
 
             return new Coordinates(longitude, latitude);
         }
