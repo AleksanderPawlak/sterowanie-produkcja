@@ -11,7 +11,7 @@ namespace Simulated_annealing
 {
     class SA
     {
-        public static SA_Result Start_SA(double T0, double Tk, double lambda, Data data,List<string> customers, Distance dist, SA_Result oldResult)
+        public static SA_Result Start_SA(double T0, double Tk, double lambda, Data data, List<string> customers, Distance dist, Distance fuelDist, SA_Result oldResult)
         {
             int Car = data.CurrentCars().Count;
             int[] CarCapacity = new int[Car];
@@ -66,12 +66,18 @@ namespace Simulated_annealing
                 oldResult.ReturnCityString.Add(customers[retCity]);
                 customers.RemoveAt(retCity);
                 Distance dist_new = dist.OutPoint(retCity);
-                oldResult = Start_SA(T0, Tk, lambda, data, customers, dist_new,oldResult);
+                Distance fuelDist_new = fuelDist.OutPoint(retCity); // ????
+                oldResult = Start_SA(T0, Tk, lambda, data, customers, dist_new, fuelDist_new, oldResult);
             }
             //TODO: licznenie ile kilometrów przejechały samochody 
             //Distance dist_km = new Distance(new double[,], "", "");
             //oldResult.fuel = tgw.All_distance(dist_km);
-            oldResult.fuel = 0;
+            //oldResult.fuel = tgw.All_distance(fuelDist).Sum();
+            double[] fuelByCar = tgw.All_distance(fuelDist);
+            for (int i = 0; i < Car; i++)
+            {
+                oldResult.fuel += data.CurrentCars()[i].kmCost * fuelByCar[i];
+            }
             oldResult.workTime = tgw.All_distance(dist).Sum();
             
             return oldResult;

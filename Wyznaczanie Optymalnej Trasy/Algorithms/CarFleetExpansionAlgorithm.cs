@@ -127,14 +127,25 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
                         Day day = (Day)i;
                         customers.AddRange(data.getCustomersNamesForSpecifiedDay(day));
-                        double[,] distances = data.getSpecifiedDurations(customers);
+                        double[,] durations = data.getSpecifiedDurations(customers);
+                        double[,] distances = data.getSpecifiedDistances(customers); 
+
                         if (customers != null)
                         {
-                            SA_Result result = SA.Start_SA(1000000, 0.0001, 0.995, data,customers, new Distance(distances, "", ""), new SA_Result());
+                            SA_Result result = SA.Start_SA(
+                                1000,
+                                0.0001, 
+                                0.9, 
+                                data,
+                                customers, 
+                                new Distance(durations, "", ""), 
+                                new Distance(distances, "", ""),
+                                new SA_Result()
+                                );
 
                             customers = result.ReturnCityString;
                             costFunction[i, k] += customers.Count * dailyPenalty;
-                            costFunction[i, k] += result.fuel * 5.10;
+                            costFunction[i, k] += result.fuel;
                             costFunction[i, k] += result.workTime * empleyeesHourlyRate;
                         }
                     }

@@ -112,6 +112,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 0.9999,
                 data,
                 selectedNames,
+                new Distance(data.getSpecifiedDurations(selectedNames)),
                 new Distance(data.getSpecifiedDistances(selectedNames)),
                 new SA_Result()
                 );

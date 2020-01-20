@@ -2,35 +2,35 @@
   {
     "model": "ducato",
     "brand": "fiat",
-    "kmCost": 20.0,
+    "kmCost": 6.0,
     "carCost": 100000.0,
     "capacity": 5
   },
   {
     "model": "ducato",
     "brand": "fiat",
-    "kmCost": 20.0,
+    "kmCost": 6.0,
     "carCost": 100000.0,
     "capacity": 5
   },
   {
     "model": "ducato",
     "brand": "fiat",
-    "kmCost": 20.0,
+    "kmCost": 6.0,
     "carCost": 100000.0,
     "capacity": 5
   },
   {
     "model": "ducato",
     "brand": "fiat",
-    "kmCost": 20.0,
+    "kmCost": 6.0,
     "carCost": 100000.0,
     "capacity": 5
   },
   {
     "model": "expert",
     "brand": "peugeot",
-    "kmCost": 18.0,
+    "kmCost": 5.6,
     "carCost": 120000.0,
     "capacity": 6
   }
