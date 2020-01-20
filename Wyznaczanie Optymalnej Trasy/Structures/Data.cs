@@ -134,10 +134,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public double[,] getSpecifiedDistances(List<string> customersNames)
         {
             List<int> indexes = new List<int>() { 0 };
-            indexes.AddRange(Enumerable.Range(0, customersList.Count)
-                .Where(i => customersNames.Contains(customersList[i].name)).ToList()
-                .Select(x => x + 1).ToList()
-                );
+            foreach (string name in customersNames) // TODO: refactor
+            {
+                indexes.Add(customersList.FindIndex(a => a.name == name) + 1);
+            }
             double[,] distances = new double[indexes.Count(), indexes.Count()];
 
             int res_i = 0;
@@ -159,10 +159,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
         public double[,] getSpecifiedDurations(List<string> customersNames)
         {
             List<int> indexes = new List<int>() { 0 };
-            indexes.AddRange(Enumerable.Range(0, customersList.Count)
-                .Where(i => customersNames.Contains(customersList[i].name)).ToList()
-                .Select(x => x + 1).ToList()
-                );
+            foreach (string name in customersNames) // TODO: refactor
+            {
+                indexes.Add(customersList.FindIndex(a => a.name == name) + 1);
+            }
             double[,] durations = new double[indexes.Count(), indexes.Count()];
 
             int res_i = 0;
@@ -278,11 +278,11 @@ namespace Wyznaczanie_Optymalnej_Trasy
         {
             if (distanceString.Contains("km"))
             {
-                return Convert.ToDouble(distanceString.Replace(" km", ""));//.Replace(".", ","))
+                return Convert.ToDouble(distanceString.Replace(" km", "").Replace(".", ","));
             }
             else if (distanceString.Contains("m"))
             {
-                return Convert.ToDouble(distanceString.Replace("m", "")) / 1000.0;//.Replace(".", ",")
+                return Convert.ToDouble(distanceString.Replace("m", "").Replace(".", ",")) / 1000.0;
             }
             else 
             {
