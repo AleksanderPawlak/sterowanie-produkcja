@@ -87,40 +87,59 @@ namespace Wyznaczanie_Optymalnej_Trasy
             )
         {
             List<string> customers = new List<string>();
-
-            for (int i = 0; i < weeksNumber; i++)
+            double[,] costFunction = new double[weeksNumber,data.AllCarsList().Count+1];
+            for (int k = 0; k < data.AllCarsList().Count+1; k++)
             {
-                Address randomCustomer = getRandomCustomer();
-                if (randomCustomer != null)
+                int dayLate = 0;
+                List<Car> Cars = data.CurrentCars(); // create car list k=0 -> current cars, k>0 ->current cars + new car
+                if (k > 0) 
                 {
-                    data.AddCustomer(randomCustomer);
-                    data.UpdateDistanceMatrix();
-
+                    Cars.Add(data.AllCarsList()[k - 1]);
                 }
 
-                for (int j = 0; j < 7; j++)
+                for (int i = 0; i < weeksNumber; i++)
                 {
-                    Day day = (Day)i;
-                    customers.AddRange(data.getCustomersNamesForSpecifiedDay(day));
-                    double[,] distances = data.getSpecifiedDurations(customers);
-                    if (customers != null)
+                    Address randomCustomer = getRandomCustomer();
+                    if (randomCustomer != null)
                     {
-                        SA_Result result = SA.Start_SA(1000000, 0.0001, 0.99995, data.CurrentCars(), new Distance(distances, "", ""), new SA_Result());
-                        customers = result.ReturnCityString;
-                        List<SA_Result> resultNewCar = new List<SA_Result>();
+                        data.AddCustomer(randomCustomer);
+                        data.UpdateDistanceMatrix();
+                    }
+
+                    for (int j = 0; j < 7; j++)
+                    {
+
+                        Day day = (Day)i;
+                        customers.AddRange(data.getCustomersNamesForSpecifiedDay(day));
+                        double[,] distances = data.getSpecifiedDurations(customers);
                         if (customers != null)
                         {
-                            for (int k = 0; k < data.AllCarsList().Count; k++)
-                            {
-                                List<Car> Cars = data.CurrentCars();
-                                Cars.Add(data.AllCarsList()[k]);
-                                List<SA_Result> newCarResult = new List<SA_Result>();
-                                newCarResult.Add(SA.Start_SA(10000, 0.001, 0.99, Cars, new Distance(distances, "", ""), new SA_Result()));
-                            }
+                            SA_Result result = SA.Start_SA(1000000, 0.0001, 0.995, data,customers, new Distance(distances, "", ""), new SA_Result());
+
+                            customers = result.ReturnCityString;
+                            costFunction[i, k] += customers.Count * dailyPenalty;
+                            costFunction[i, k] += result.fuel * 5.10;
+                            costFunction[i, k] += result.workTime * empleyeesHourlyRate;
                         }
+                    }
+                    if (k > 0)
+                    {
+                        costFunction[i, k] += data.AllCarsList()[k - 1].carCost / (3 * 52);
+                    }
+                    if (customers != null)
+                    {
+                        dayLate++;
+                    }
+                }
+                if (dayLate > weeksNumber*0.8)
+                {
+                    for (int i = 0; i < weeksNumber; i++)
+                    {
+                        costFunction[i, k] += dayLate * 1000;
                     }
                 }
             }
+            int maxIndex = costFunction.Cast<double>().ToList().IndexOf(costFunction.Cast<double>().Min());
             return new Result();
         }
     }

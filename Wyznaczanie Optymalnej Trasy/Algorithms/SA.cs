@@ -5,39 +5,42 @@ using System.Text;
 using System.Threading.Tasks;
 using Wyznaczanie_Optymalnej_Trasy.Structures;
 using Wyznaczanie_Optymalnej_Trasy.Algorithms.utils;
+using Wyznaczanie_Optymalnej_Trasy;
 
 namespace Simulated_annealing
 {
     class SA
     {
-        public static SA_Result Start_SA(double T0, double Tk, double lambda, List<Car> CarTable, Distance dist, SA_Result oldResult)
+        public static SA_Result Start_SA(double T0, double Tk, double lambda, Data data,List<string> customers, Distance dist, SA_Result oldResult)
         {
-            int Car = CarTable.Count;
+            int Car = data.CurrentCars().Count;
             int[] CarCapacity = new int[Car];
 
             for (int i = 0; i < Car; i++)
             {
-                CarCapacity[i] = CarTable[i].capacity;
+                CarCapacity[i] = data.CurrentCars()[i].capacity;
             }
             int maxCapacity = CarCapacity.Sum();
-            if (dist.City>maxCapacity)
-            {
-                
-            }
+
             
             double Time_Max = 12;
             double T = T0;
             Sequence t = new Sequence(Car, dist.City);
             Sequence tpr = new Sequence(Car, dist.City);
             Sequence tgw = new Sequence(Car, dist.City);
-
+            int outOfCapacity = 0;
             while (T >= Tk)
             {
+                if (dist.City > maxCapacity)
+                {
+                    outOfCapacity = 1;
+                    break;
+                }
                 t.rand_road("insert");
                 tpr.copy(t);
-                double tgw_d = tgw.Road_distance(dist);
-                double t_d = t.Road_distance(dist);
-                double tpr_d = tpr.Road_distance(dist);
+                double tgw_d = tgw.Road_distance(dist,CarCapacity);
+                double t_d = t.Road_distance(dist, CarCapacity);
+                double tpr_d = tpr.Road_distance(dist, CarCapacity);
                 if (tgw_d > t_d)
                 {
                     tgw.copy(t);
@@ -53,18 +56,23 @@ namespace Simulated_annealing
                 T = lambda * T;
             }
             oldResult.optimal_road = tgw;
-            if (Time_Max < tgw.Road_distance(dist))
+            if (Time_Max < tgw.Road_distance(dist, CarCapacity)&& customers.Count>0 || outOfCapacity == 1)
             {
                 
                 double[] dist_array = tgw.All_distance(dist);
                 double maxDist = dist_array.Max();
                 double maxIndex = dist_array.ToList().IndexOf(maxDist);
-
-
-                oldResult.ReturnCity.Add(OutPointLF(dist, tgw));
-                Distance dist_new = dist.OutPoint(oldResult.ReturnCity.Last());
-                oldResult= Start_SA(T0, Tk, lambda, CarTable, dist_new,oldResult);
+                int retCity = OutPointLF(dist, tgw);
+                oldResult.ReturnCityString.Add(customers[retCity]);
+                customers.RemoveAt(retCity);
+                Distance dist_new = dist.OutPoint(retCity);
+                oldResult = Start_SA(T0, Tk, lambda, data, customers, dist_new,oldResult);
             }
+            //TODO: licznenie ile kilometrów przejechały samochody 
+            //Distance dist_km = new Distance(new double[,], "", "");
+            //oldResult.fuel = tgw.All_distance(dist_km);
+            oldResult.fuel = 0;
+            oldResult.workTime = tgw.All_distance(dist).Sum();
             
             return oldResult;
         }

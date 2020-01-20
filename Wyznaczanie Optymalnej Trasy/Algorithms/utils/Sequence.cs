@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Wyznaczanie_Optymalnej_Trasy.Structures;
+using Wyznaczanie_Optymalnej_Trasy.Algorithms.utils;
 
 namespace Simulated_annealing
 {
@@ -74,7 +76,7 @@ namespace Simulated_annealing
                 Road[i] = arg.Road[i];
             }
         }
-        public double Road_distance(Distance arg)
+        public double Road_distance(Distance arg,int[] capacityTable)
         {
             double[] L = new double[Car];
             int j = 0;
@@ -82,9 +84,15 @@ namespace Simulated_annealing
             {
                 do
                 {
+                    if (j > capacityTable[i])
+                    {
+                        L[i] = int.MaxValue;
+                        break;
+                    }
                     L[i] += arg.Get(Road[j], Road[j + 1]);
                     j++;
                 } while (Road[j]!=0);
+                
             }
             return L.Max();
         }

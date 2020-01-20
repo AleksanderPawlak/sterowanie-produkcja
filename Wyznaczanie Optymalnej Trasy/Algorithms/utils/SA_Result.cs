@@ -12,7 +12,8 @@ namespace Wyznaczanie_Optymalnej_Trasy.Algorithms.utils
         public Sequence optimal_road;
         public List<int> ReturnCity = new List<int>();
         public List<string> ReturnCityString = new List<string>();
-
+        public double workTime;
+        public double fuel;
         public SA_Result() 
         { 
         

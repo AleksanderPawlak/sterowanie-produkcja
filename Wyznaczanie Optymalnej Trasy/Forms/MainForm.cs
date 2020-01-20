@@ -104,9 +104,10 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 100000000,
                 0.00001,
                 0.9999,
-                data.AllCarsList(),
+                data,
+                selectedNames,
                 new Distance(data.getSpecifiedDistances(selectedNames)),
-                new SA_Result()                
+                new SA_Result()
                 );
 
             var form = new OptimalizationResultForm(result.optimal_road, allNames);
