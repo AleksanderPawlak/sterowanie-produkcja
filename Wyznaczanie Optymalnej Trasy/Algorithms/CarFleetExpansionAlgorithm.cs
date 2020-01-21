@@ -185,14 +185,28 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 endCF[i] = costFunction[weeksNumber-1, i];
             }
             
-            if (sumCF[0] == sumCF.Min())
+            if (sumCF[0] == sumCF.Min() && endCF[0] == endCF.Min())
                 return new Result();
             else
             {
                 int minCF = sumCF.ToList().IndexOf(endCF.Min()) - 1;
+                double bestDif = int.MaxValue;
+                int iterDif = 0;
+                for (int i = 1; i < simNumber; i++)
+                {
+                    if (bestDif > endCF[i]/sumCF[i])
+                    {
+                        bestDif = endCF[i]/sumCF[i];
+                        iterDif = i;
+                    }
+                }
+                if (minCF == iterDif)
+                    return new Result(true, dataMainCopy.AllCarsList()[minCF], 1);
+                else if (endCF[minCF] / sumCF[minCF] - endCF[iterDif] / sumCF[iterDif] < 0.1)
+                    return new Result(true, dataMainCopy.AllCarsList()[minCF],weeksNumber);
+                else
+                    return new Result(true, dataMainCopy.AllCarsList()[iterDif],weeksNumber*2);
 
-                
-                return new Result(true, dataMainCopy.AllCarsList()[minCF],1);
             }
 
             
