@@ -77,26 +77,26 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
         private static void addRandomCustomer(Data data) // TODO: refactor (bardzo zle rozwiazanie)
         {
-            if (!getRandomDecisionAboutNewCustomer())
-                return;
+            //if (!getRandomDecisionAboutNewCustomer())
+            //    return;
 
-            bool error = false;
+            //bool error = false;
 
-            do
-            {
-                try
-                {
-                    Address randomCustomer = getRandomCustomer();
-                    data.AddCustomer(randomCustomer);
-                    data.UpdateDistanceMatrix();
+            //do
+            //{
+            //    try
+            //    {
+            //        Address randomCustomer = getRandomCustomer();
+            //        data.AddCustomer(randomCustomer);
+            //        data.UpdateDistanceMatrix();
 
-                }
-                catch (Exception)
-                {
-                    error = true;
-                }
-            }
-            while (error);
+            //    }
+            //    catch (Exception)
+            //    {
+            //        error = true;
+            //    }
+            //}
+            //while (error);
         }
 
         public static Result getDecision(
@@ -189,7 +189,9 @@ namespace Wyznaczanie_Optymalnej_Trasy
                 return new Result();
             else
             {
-                int minCF = sumCF.ToList().IndexOf(endCF.Min()) - 1;
+                int minCF = sumCF.ToList().IndexOf(sumCF.Min());
+                if (minCF != 0)
+                    minCF--;
                 double bestDif = int.MaxValue;
                 int iterDif = 0;
                 for (int i = 1; i < simNumber; i++)
