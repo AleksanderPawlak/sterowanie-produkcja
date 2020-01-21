@@ -112,18 +112,20 @@
             this.tabControl1.Controls.Add(this.CarFleetExpansionAlgorithmTab);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1668, 1412);
+            this.tabControl1.Size = new System.Drawing.Size(602, 369);
             this.tabControl1.TabIndex = 0;
             // 
             // CustomersList
             // 
             this.CustomersList.Controls.Add(this.tableLayoutPanel1);
-            this.CustomersList.Location = new System.Drawing.Point(10, 48);
+            this.CustomersList.Location = new System.Drawing.Point(4, 22);
+            this.CustomersList.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CustomersList.Name = "CustomersList";
-            this.CustomersList.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomersList.Size = new System.Drawing.Size(1648, 1354);
+            this.CustomersList.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.CustomersList.Size = new System.Drawing.Size(594, 343);
             this.CustomersList.TabIndex = 0;
             this.CustomersList.Text = "Lista odbiorców";
             this.CustomersList.UseVisualStyleBackColor = true;
@@ -139,25 +141,27 @@
             this.tableLayoutPanel1.Controls.Add(this.HomeAddressListView, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 160F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 107F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1642, 1348);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(592, 341);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(3, 200);
+            this.textBox2.Location = new System.Drawing.Point(1, 84);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(1648, 38);
+            this.textBox2.Size = new System.Drawing.Size(620, 20);
             this.textBox2.TabIndex = 6;
             this.textBox2.Text = "Lista odbiorców";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -176,9 +180,10 @@
             this.city});
             this.CustomerListview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerListview.HideSelection = false;
-            this.CustomerListview.Location = new System.Drawing.Point(3, 244);
+            this.CustomerListview.Location = new System.Drawing.Point(1, 102);
+            this.CustomerListview.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CustomerListview.Name = "CustomerListview";
-            this.CustomerListview.Size = new System.Drawing.Size(1648, 890);
+            this.CustomerListview.Size = new System.Drawing.Size(620, 149);
             this.CustomerListview.TabIndex = 0;
             this.CustomerListview.UseCompatibleStateImageBehavior = false;
             this.CustomerListview.View = System.Windows.Forms.View.Details;
@@ -226,9 +231,10 @@
             // AddCustomerButton
             // 
             this.AddCustomerButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddCustomerButton.Location = new System.Drawing.Point(3, 1244);
+            this.AddCustomerButton.Location = new System.Drawing.Point(1, 297);
+            this.AddCustomerButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AddCustomerButton.Name = "AddCustomerButton";
-            this.AddCustomerButton.Size = new System.Drawing.Size(1648, 101);
+            this.AddCustomerButton.Size = new System.Drawing.Size(620, 43);
             this.AddCustomerButton.TabIndex = 1;
             this.AddCustomerButton.Text = "Dodaj odbiorcę";
             this.AddCustomerButton.UseVisualStyleBackColor = true;
@@ -237,9 +243,10 @@
             // DimensionsRefreshButton
             // 
             this.DimensionsRefreshButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DimensionsRefreshButton.Location = new System.Drawing.Point(3, 1140);
+            this.DimensionsRefreshButton.Location = new System.Drawing.Point(1, 253);
+            this.DimensionsRefreshButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.DimensionsRefreshButton.Name = "DimensionsRefreshButton";
-            this.DimensionsRefreshButton.Size = new System.Drawing.Size(1648, 98);
+            this.DimensionsRefreshButton.Size = new System.Drawing.Size(620, 42);
             this.DimensionsRefreshButton.TabIndex = 2;
             this.DimensionsRefreshButton.Text = "Przelicz odległości";
             this.DimensionsRefreshButton.UseVisualStyleBackColor = true;
@@ -258,9 +265,10 @@
             this.HomeCity});
             this.HomeAddressListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HomeAddressListView.HideSelection = false;
-            this.HomeAddressListView.Location = new System.Drawing.Point(3, 40);
+            this.HomeAddressListView.Location = new System.Drawing.Point(1, 17);
+            this.HomeAddressListView.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.HomeAddressListView.Name = "HomeAddressListView";
-            this.HomeAddressListView.Size = new System.Drawing.Size(1648, 154);
+            this.HomeAddressListView.Size = new System.Drawing.Size(620, 65);
             this.HomeAddressListView.TabIndex = 3;
             this.HomeAddressListView.UseCompatibleStateImageBehavior = false;
             this.HomeAddressListView.View = System.Windows.Forms.View.Details;
@@ -304,9 +312,10 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
+            this.textBox1.Location = new System.Drawing.Point(1, 1);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1648, 38);
+            this.textBox1.Size = new System.Drawing.Size(620, 20);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Adres domowy";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -314,10 +323,11 @@
             // Algorithm
             // 
             this.Algorithm.Controls.Add(this.ComputeTableLayoutPanel);
-            this.Algorithm.Location = new System.Drawing.Point(10, 48);
+            this.Algorithm.Location = new System.Drawing.Point(4, 22);
+            this.Algorithm.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Algorithm.Name = "Algorithm";
-            this.Algorithm.Padding = new System.Windows.Forms.Padding(3);
-            this.Algorithm.Size = new System.Drawing.Size(1648, 1354);
+            this.Algorithm.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Algorithm.Size = new System.Drawing.Size(618, 566);
             this.Algorithm.TabIndex = 1;
             this.Algorithm.Text = "Wyznacz trasę";
             this.Algorithm.UseVisualStyleBackColor = true;
@@ -330,21 +340,23 @@
             this.ComputeTableLayoutPanel.Controls.Add(this.CustomersListCheck, 0, 0);
             this.ComputeTableLayoutPanel.Controls.Add(this.CarNumberLayoutPanel, 0, 1);
             this.ComputeTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ComputeTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
+            this.ComputeTableLayoutPanel.Location = new System.Drawing.Point(1, 1);
+            this.ComputeTableLayoutPanel.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ComputeTableLayoutPanel.Name = "ComputeTableLayoutPanel";
             this.ComputeTableLayoutPanel.RowCount = 3;
             this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.17706F));
-            this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             this.ComputeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.82294F));
-            this.ComputeTableLayoutPanel.Size = new System.Drawing.Size(1642, 1348);
+            this.ComputeTableLayoutPanel.Size = new System.Drawing.Size(616, 564);
             this.ComputeTableLayoutPanel.TabIndex = 3;
             // 
             // ComputeButton
             // 
             this.ComputeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ComputeButton.Location = new System.Drawing.Point(3, 1185);
+            this.ComputeButton.Location = new System.Drawing.Point(1, 495);
+            this.ComputeButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ComputeButton.Name = "ComputeButton";
-            this.ComputeButton.Size = new System.Drawing.Size(1636, 160);
+            this.ComputeButton.Size = new System.Drawing.Size(614, 68);
             this.ComputeButton.TabIndex = 2;
             this.ComputeButton.Text = "Wyznacz trasę";
             this.ComputeButton.UseVisualStyleBackColor = true;
@@ -365,9 +377,10 @@
             this.CustomersListCheck.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CustomersListCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomersListCheck.HideSelection = false;
-            this.CustomersListCheck.Location = new System.Drawing.Point(3, 3);
+            this.CustomersListCheck.Location = new System.Drawing.Point(1, 1);
+            this.CustomersListCheck.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CustomersListCheck.Name = "CustomersListCheck";
-            this.CustomersListCheck.Size = new System.Drawing.Size(1636, 1120);
+            this.CustomersListCheck.Size = new System.Drawing.Size(614, 469);
             this.CustomersListCheck.TabIndex = 1;
             this.CustomersListCheck.UseCompatibleStateImageBehavior = false;
             this.CustomersListCheck.View = System.Windows.Forms.View.Details;
@@ -420,12 +433,13 @@
             this.CarNumberLayoutPanel.Controls.Add(this.CarsNumberNumericUpDown, 1, 0);
             this.CarNumberLayoutPanel.Controls.Add(this.CarNumberTextBox, 0, 0);
             this.CarNumberLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CarNumberLayoutPanel.Location = new System.Drawing.Point(3, 1129);
+            this.CarNumberLayoutPanel.Location = new System.Drawing.Point(1, 472);
+            this.CarNumberLayoutPanel.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CarNumberLayoutPanel.Name = "CarNumberLayoutPanel";
             this.CarNumberLayoutPanel.RowCount = 1;
             this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.CarNumberLayoutPanel.Size = new System.Drawing.Size(1636, 50);
+            this.CarNumberLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.CarNumberLayoutPanel.Size = new System.Drawing.Size(614, 21);
             this.CarNumberLayoutPanel.TabIndex = 3;
             // 
             // CarsNumberNumericUpDown
@@ -433,7 +447,8 @@
             this.CarsNumberNumericUpDown.AutoSize = true;
             this.CarsNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CarsNumberNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CarsNumberNumericUpDown.Location = new System.Drawing.Point(402, 3);
+            this.CarsNumberNumericUpDown.Location = new System.Drawing.Point(150, 1);
+            this.CarsNumberNumericUpDown.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CarsNumberNumericUpDown.Maximum = new decimal(new int[] {
             50,
             0,
@@ -445,7 +460,7 @@
             0,
             0});
             this.CarsNumberNumericUpDown.Name = "CarsNumberNumericUpDown";
-            this.CarsNumberNumericUpDown.Size = new System.Drawing.Size(1231, 45);
+            this.CarsNumberNumericUpDown.Size = new System.Drawing.Size(463, 22);
             this.CarsNumberNumericUpDown.TabIndex = 0;
             this.CarsNumberNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -458,9 +473,10 @@
             this.CarNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CarNumberTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CarNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CarNumberTextBox.Location = new System.Drawing.Point(3, 3);
+            this.CarNumberTextBox.Location = new System.Drawing.Point(1, 1);
+            this.CarNumberTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CarNumberTextBox.Name = "CarNumberTextBox";
-            this.CarNumberTextBox.Size = new System.Drawing.Size(393, 31);
+            this.CarNumberTextBox.Size = new System.Drawing.Size(147, 13);
             this.CarNumberTextBox.TabIndex = 1;
             this.CarNumberTextBox.Text = "Liczba samochodow";
             this.CarNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -468,10 +484,11 @@
             // carsListPage
             // 
             this.carsListPage.Controls.Add(this.tableLayoutPanel2);
-            this.carsListPage.Location = new System.Drawing.Point(10, 48);
+            this.carsListPage.Location = new System.Drawing.Point(4, 22);
+            this.carsListPage.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.carsListPage.Name = "carsListPage";
-            this.carsListPage.Padding = new System.Windows.Forms.Padding(3);
-            this.carsListPage.Size = new System.Drawing.Size(1648, 1354);
+            this.carsListPage.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.carsListPage.Size = new System.Drawing.Size(618, 566);
             this.carsListPage.TabIndex = 2;
             this.carsListPage.Text = "Lista samochodów";
             this.carsListPage.UseVisualStyleBackColor = true;
@@ -483,20 +500,22 @@
             this.tableLayoutPanel2.Controls.Add(this.AddCarButton, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.carsListView, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 89.98964F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.01037F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1642, 1348);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(616, 564);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // AddCarButton
             // 
             this.AddCarButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AddCarButton.Location = new System.Drawing.Point(3, 1216);
+            this.AddCarButton.Location = new System.Drawing.Point(1, 508);
+            this.AddCarButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AddCarButton.Name = "AddCarButton";
-            this.AddCarButton.Size = new System.Drawing.Size(1648, 129);
+            this.AddCarButton.Size = new System.Drawing.Size(620, 55);
             this.AddCarButton.TabIndex = 0;
             this.AddCarButton.Text = "Dodaj samochód";
             this.AddCarButton.UseVisualStyleBackColor = true;
@@ -511,9 +530,10 @@
             this.kmCost});
             this.carsListView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.carsListView.HideSelection = false;
-            this.carsListView.Location = new System.Drawing.Point(3, 3);
+            this.carsListView.Location = new System.Drawing.Point(1, 1);
+            this.carsListView.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.carsListView.Name = "carsListView";
-            this.carsListView.Size = new System.Drawing.Size(1648, 1207);
+            this.carsListView.Size = new System.Drawing.Size(620, 505);
             this.carsListView.TabIndex = 1;
             this.carsListView.UseCompatibleStateImageBehavior = false;
             this.carsListView.View = System.Windows.Forms.View.Details;
@@ -541,10 +561,11 @@
             // CarFleetExpansionAlgorithmTab
             // 
             this.CarFleetExpansionAlgorithmTab.Controls.Add(this.tableLayoutPanel3);
-            this.CarFleetExpansionAlgorithmTab.Location = new System.Drawing.Point(10, 48);
+            this.CarFleetExpansionAlgorithmTab.Location = new System.Drawing.Point(4, 22);
+            this.CarFleetExpansionAlgorithmTab.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CarFleetExpansionAlgorithmTab.Name = "CarFleetExpansionAlgorithmTab";
-            this.CarFleetExpansionAlgorithmTab.Padding = new System.Windows.Forms.Padding(3);
-            this.CarFleetExpansionAlgorithmTab.Size = new System.Drawing.Size(1648, 1354);
+            this.CarFleetExpansionAlgorithmTab.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.CarFleetExpansionAlgorithmTab.Size = new System.Drawing.Size(618, 566);
             this.CarFleetExpansionAlgorithmTab.TabIndex = 3;
             this.CarFleetExpansionAlgorithmTab.Text = "Algorytm decyzyjny";
             this.CarFleetExpansionAlgorithmTab.UseVisualStyleBackColor = true;
@@ -558,17 +579,18 @@
             this.tableLayoutPanel3.Controls.Add(this.employeeHourRateInput, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1, 1);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.80063F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.19937F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1642, 1348);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(616, 564);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel5
@@ -579,17 +601,19 @@
             this.tableLayoutPanel5.Controls.Add(this.weeksNumberNumericUpDown, 1, 0);
             this.tableLayoutPanel5.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 248);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(1, 103);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1648, 46);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(618, 20);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // weeksNumberNumericUpDown
             // 
             this.weeksNumberNumericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.weeksNumberNumericUpDown.Location = new System.Drawing.Point(827, 3);
+            this.weeksNumberNumericUpDown.Location = new System.Drawing.Point(310, 1);
+            this.weeksNumberNumericUpDown.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.weeksNumberNumericUpDown.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -601,7 +625,7 @@
             0,
             0});
             this.weeksNumberNumericUpDown.Name = "weeksNumberNumericUpDown";
-            this.weeksNumberNumericUpDown.Size = new System.Drawing.Size(818, 38);
+            this.weeksNumberNumericUpDown.Size = new System.Drawing.Size(307, 20);
             this.weeksNumberNumericUpDown.TabIndex = 0;
             this.weeksNumberNumericUpDown.Value = new decimal(new int[] {
             1,
@@ -613,18 +637,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Location = new System.Drawing.Point(1, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(818, 46);
+            this.label2.Size = new System.Drawing.Size(307, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Liczba tygodni";
             // 
             // computeCarFleetAlgorithmButton
             // 
             this.computeCarFleetAlgorithmButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.computeCarFleetAlgorithmButton.Location = new System.Drawing.Point(3, 300);
+            this.computeCarFleetAlgorithmButton.Location = new System.Drawing.Point(1, 125);
+            this.computeCarFleetAlgorithmButton.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.computeCarFleetAlgorithmButton.Name = "computeCarFleetAlgorithmButton";
-            this.computeCarFleetAlgorithmButton.Size = new System.Drawing.Size(1648, 84);
+            this.computeCarFleetAlgorithmButton.Size = new System.Drawing.Size(618, 36);
             this.computeCarFleetAlgorithmButton.TabIndex = 2;
             this.computeCarFleetAlgorithmButton.Text = "Oblicz";
             this.computeCarFleetAlgorithmButton.UseVisualStyleBackColor = true;
@@ -638,29 +664,32 @@
             this.employeeHourRateInput.Controls.Add(this.label3, 0, 0);
             this.employeeHourRateInput.Controls.Add(this.hourRateInput, 1, 0);
             this.employeeHourRateInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.employeeHourRateInput.Location = new System.Drawing.Point(3, 196);
+            this.employeeHourRateInput.Location = new System.Drawing.Point(1, 81);
+            this.employeeHourRateInput.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.employeeHourRateInput.Name = "employeeHourRateInput";
             this.employeeHourRateInput.RowCount = 1;
             this.employeeHourRateInput.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.employeeHourRateInput.Size = new System.Drawing.Size(1648, 46);
+            this.employeeHourRateInput.Size = new System.Drawing.Size(618, 20);
             this.employeeHourRateInput.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Location = new System.Drawing.Point(1, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(818, 46);
+            this.label3.Size = new System.Drawing.Size(307, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Stawka godziowa pracownika";
             // 
             // hourRateInput
             // 
             this.hourRateInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hourRateInput.Location = new System.Drawing.Point(827, 3);
+            this.hourRateInput.Location = new System.Drawing.Point(310, 1);
+            this.hourRateInput.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.hourRateInput.Name = "hourRateInput";
-            this.hourRateInput.Size = new System.Drawing.Size(818, 38);
+            this.hourRateInput.Size = new System.Drawing.Size(307, 20);
             this.hourRateInput.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -671,11 +700,12 @@
             this.tableLayoutPanel7.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.penaltyInput, 1, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 144);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(1, 59);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1648, 46);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(618, 20);
             this.tableLayoutPanel7.TabIndex = 4;
             this.tableLayoutPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel7_Paint);
             // 
@@ -683,27 +713,30 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(3, 0);
+            this.label4.Location = new System.Drawing.Point(1, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(818, 46);
+            this.label4.Size = new System.Drawing.Size(307, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Kwota kary za dzień spóżnienia";
             // 
             // penaltyInput
             // 
             this.penaltyInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.penaltyInput.Location = new System.Drawing.Point(827, 3);
+            this.penaltyInput.Location = new System.Drawing.Point(310, 1);
+            this.penaltyInput.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.penaltyInput.Name = "penaltyInput";
-            this.penaltyInput.Size = new System.Drawing.Size(818, 38);
+            this.penaltyInput.Size = new System.Drawing.Size(307, 20);
             this.penaltyInput.TabIndex = 1;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1668, 1412);
+            this.ClientSize = new System.Drawing.Size(602, 369);
             this.Controls.Add(this.tabControl1);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "MainForm";
             this.Text = "Wyznaczanie optymalnej trasy";
             this.tabControl1.ResumeLayout(false);

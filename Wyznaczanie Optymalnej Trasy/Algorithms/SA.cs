@@ -69,7 +69,8 @@ namespace Simulated_annealing
                 customers.RemoveAt(retCity);
                 Distance dist_new = dist.OutPoint(retCity);
                 Distance fuelDist_new = fuelDist.OutPoint(retCity); // ????
-                oldResult = Start_SA(T0, Tk, lambda, data, customers, dist_new, fuelDist_new, oldResult);
+                if (customers.Count != 0)
+                    oldResult = Start_SA(T0, Tk, lambda, data, customers, dist_new, fuelDist_new, oldResult);
             }
 
             double[] fuelByCar = tgw.All_distance(fuelDist);

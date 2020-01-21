@@ -121,12 +121,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
 
                 for (int i = 0; i < weeksNumber; i++)
                 {
-                    addRandomCustomer(data);
+                    //addRandomCustomer(data);
 
                     for (int j = 0; j < 7; j++)
                     {
 
-                        Day day = (Day)i;
+                        Day day = (Day)j;
                         customers.AddRange(data.getCustomersNamesForSpecifiedDay(day));
                         double[,] durations = data.getSpecifiedDurations(customers);
                         double[,] distances = data.getSpecifiedDistances(customers); 
@@ -145,6 +145,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
                                 );
 
                             customers = result.ReturnCityString;
+                            result.ReturnCityString.Clear();
                             costFunction[i, k] += customers.Count * dailyPenalty;
                             costFunction[i, k] += result.fuel;
                             costFunction[i, k] += result.workTime * empleyeesHourlyRate;
@@ -154,12 +155,12 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     {
                         costFunction[i, k] += data.AllCarsList()[k - 1].carCost / (3 * 52);
                     }
-                    if (customers != null)
+                    if (customers == null)
                     {
                         dayLate++;
                     }
                 }
-                if (dayLate > weeksNumber*0.8)
+                if (dayLate > weeksNumber*0.8*7)
                 {
                     for (int i = 0; i < weeksNumber; i++)
                     {
@@ -167,18 +168,29 @@ namespace Wyznaczanie_Optymalnej_Trasy
                     }
                 }
             }
+            
             int simNumber = dataMainCopy.AllCarsList().Count + 1;
+            double[] sumCF = new double[simNumber];
+            for (int i = 0; i < simNumber; i++)
+            {
+                sumCF[i] = 0;
+                for (int j = 0; j < weeksNumber; j++)
+                {
+                    sumCF[i] += costFunction[j,i];
+                }
+            }
             double[] endCF = new double[simNumber];
             for (int i = 0; i < simNumber; i++)
             {
                 endCF[i] = costFunction[weeksNumber-1, i];
             }
-
-            if (endCF[0] == endCF.Min())
+            
+            if (sumCF[0] == sumCF.Min())
                 return new Result();
             else
             {
-                int minCF = endCF.ToList().IndexOf(endCF.Min()) - 1;
+                int minCF = sumCF.ToList().IndexOf(endCF.Min()) - 1;
+
                 
                 return new Result(true, dataMainCopy.AllCarsList()[minCF],1);
             }
