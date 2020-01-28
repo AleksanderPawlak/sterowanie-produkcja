@@ -16,7 +16,7 @@ namespace Wyznaczanie_Optymalnej_Trasy
     static class Globals
     {
         public const bool AllowGoogleApiOperations = true;
-        public const string API_KEY = "AIzaSyBKQYIwjZ3lTYZgyRYTyIF1TS8NVAA3d4g";
+        public const string API_KEY = "";
     }
 
     public class Data
